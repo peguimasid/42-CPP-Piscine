@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 00:01:01 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 00:32:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,27 @@
 #include "./includes/PhoneBook.hpp"
 #include "./includes/Utils.hpp"
 
-void addContact() {
+void addContact(PhoneBook *phonebook) {
+  (void)phonebook;
 }
 
-void searchContact() {
+void searchContact(PhoneBook *phonebook) {
+  (void)phonebook;
 }
 
-void inputLoop() {
+void inputLoop(PhoneBook *phonebook) {
   while (true) {
     std::string input = getInputString();
 
     if (!isValidInput(input)) printUsage();
-    if (input == "ADD") addContact();
-    if (input == "SEARCH") searchContact();
+    if (input == "ADD") addContact(phonebook);
+    if (input == "SEARCH") searchContact(phonebook);
     if (input == "EXIT") break;
   }
 }
 
 int main(void) {
+  PhoneBook phonebook;
   printUsage();
-  inputLoop();
+  inputLoop(&phonebook);
 }

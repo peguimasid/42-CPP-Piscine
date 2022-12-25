@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 23:46:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/24 23:58:02 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 00:33:04 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 
 class PhoneBook {
  private:
-  int add_index;
+  int _count;
+  int _add_index;
   Contact _contacts[8];
 
  public:
-  PhoneBook() {
-    add_index = 0;
-  }
+  PhoneBook();
+
   Contact getContact(int index);
-  void setContact(Contact contact);
+  void addContact(Contact contact);
 };
 
 #endif
