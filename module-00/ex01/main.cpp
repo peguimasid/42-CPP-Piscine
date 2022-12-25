@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 13:30:42 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 13:49:13 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void addContact(PhoneBook *phonebook) {
   phonebook->addContact(newContact);
 }
 
+// TODO: print table
+// TODO: while input is out of bounds, get input for index
 void searchContact(PhoneBook *phonebook) {
   int length = phonebook->getCount();
 
