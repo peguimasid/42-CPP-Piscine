@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 13:49:13 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 19:16:42 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void searchContact(PhoneBook *phonebook) {
   int length = phonebook->getCount();
 
   for (int i = 0; i < length; i++) {
-    std::cout << phonebook->getContact(i).getFirstName() << std::endl;
+    std::cout << truncate(phonebook->getContact(i).getFirstName()) << std::endl;
   }
 }
 
