@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 00:00:48 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 13:24:29 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void printUsage() {
   std::cout << "\033[0m\n";
 }
 
-std::string getInputString() {
+std::string getInputString(std::string prompt) {
   std::string result;
 
-  std::cout << "Enter a command: ";
+  std::cout << prompt;
   std::cin >> result;
 
   return result;

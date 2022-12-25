@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 00:34:15 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 13:30:42 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,27 @@
 #include "./includes/Utils.hpp"
 
 void addContact(PhoneBook *phonebook) {
-  (void)phonebook;
+  Contact newContact;
+
+  newContact.setFirstName(getInputString("First Name: "));
+  newContact.setLastName(getInputString("Last Name: "));
+  newContact.setNickname(getInputString("Nickname: "));
+  newContact.setPhoneNumber(getInputString("Phone Number: "));
+  newContact.setDarkestSecret(getInputString("Darkest Secret: "));
+  phonebook->addContact(newContact);
 }
 
 void searchContact(PhoneBook *phonebook) {
-  (void)phonebook;
+  int length = phonebook->getCount();
+
+  for (int i = 0; i < length; i++) {
+    std::cout << phonebook->getContact(i).getFirstName() << std::endl;
+  }
 }
 
 void inputLoop(PhoneBook *phonebook) {
   while (true) {
-    std::string input = getInputString();
+    std::string input = getInputString("Enter a command: ");
 
     if (!isValidInput(input)) printUsage();
     if (input == "ADD") addContact(phonebook);

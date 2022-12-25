@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 23:46:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 00:34:20 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 13:28:57 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class PhoneBook {
  public:
   PhoneBook();
 
+  int getCount();
   Contact getContact(int index);
+
   void addContact(Contact contact);
 };
 
