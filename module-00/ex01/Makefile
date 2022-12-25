@@ -4,7 +4,7 @@ CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm -rf
 
-SRCS = main.cpp src/Contact.cpp
+SRCS = main.cpp utils.cpp src/Contact.cpp src/PhoneBook.cpp
 
 all: $(NAME)
 

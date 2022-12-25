@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 00:01:01 by gmasid           ###   ########.fr       */
+/*   Created: 2022/12/25 00:01:16 by gmasid            #+#    #+#             */
+/*   Updated: 2022/12/25 00:01:26 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef UTILS_H
+#define UTILS_H
 
 #include <iostream>
 #include <string>
 
-#include "./includes/Contact.hpp"
-#include "./includes/PhoneBook.hpp"
-#include "./includes/Utils.hpp"
+void printUsage();
+std::string getInputString();
+bool isValidInput(std::string input);
 
-void addContact() {
-}
-
-void searchContact() {
-}
-
-void inputLoop() {
-  while (true) {
-    std::string input = getInputString();
-
-    if (!isValidInput(input)) printUsage();
-    if (input == "ADD") addContact();
-    if (input == "SEARCH") searchContact();
-    if (input == "EXIT") break;
-  }
-}
-
-int main(void) {
-  printUsage();
-  inputLoop();
-}
+#endif
