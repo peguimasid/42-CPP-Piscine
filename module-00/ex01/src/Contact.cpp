@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/24 23:07:18 by gmasid           ###   ########.fr       */
+/*   Created: 2022/12/24 22:37:38 by gmasid            #+#    #+#             */
+/*   Updated: 2022/12/24 23:05:23 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../includes/Contact.hpp"
 
-#include "./includes/Contact.hpp"
+void Contact::setFirstName(std::string value) {
+  this->_first_name = value;
+}
 
-int main(void) {
-  Contact myContact;
-  myContact.setFirstName("Guilhermo");
-  std::cout << myContact.getFirstName() << std::endl;
+std::string Contact::getFirstName() {
+  return this->_first_name;
 }
