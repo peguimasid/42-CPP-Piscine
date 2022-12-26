@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 12:23:43 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 12:28:01 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void printContactInfo(PhoneBook *phonebook, int selectedIndex) {
 
   Contact contact = phonebook->getContact(selectedIndex);
 
-  std::cout << "\033[0;34m";
+  std::cout << "\033[0;35m";
   std::cout << "First name - " << contact.getFirstName() << std::endl;
   std::cout << "Last name - " << contact.getLastName() << std::endl;
   std::cout << "Nickname - " << contact.getNickname() << std::endl;
