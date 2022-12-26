@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 21:25:37 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 11:11:48 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,26 @@ std::string getInput(std::string prompt) {
   std::getline(std::cin, input);
 
   return input;
+}
+
+void printHeader() {
+  std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
+  std::cout << "│" << std::setw(10) << std::left << "index";
+  std::cout << "│" << std::setw(10) << std::left << "First Name";
+  std::cout << "│" << std::setw(10) << std::left << "Last Name";
+  std::cout << "│" << std::setw(10) << std::left << "Nickname";
+  std::cout << "│" << std::endl;
+  std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
+}
+
+void printFooter() {
+  std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
+}
+
+void printContactRow(int index, Contact contact) {
+  std::cout << "│" << std::setw(10) << index;
+  std::cout << "│" << std::setw(10) << truncate(contact.getFirstName());
+  std::cout << "│" << std::setw(10) << truncate(contact.getLastName());
+  std::cout << "│" << std::setw(10) << truncate(contact.getNickname());
+  std::cout << "│" << std::endl;
 }
