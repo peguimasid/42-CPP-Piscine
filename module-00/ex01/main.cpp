@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:38:17 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 12:11:25 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,28 @@ void printContactsTable(PhoneBook *phonebook) {
   printFooter();
 }
 
+int selectContact(PhoneBook *phonebook) {
+  int length = phonebook->getCount();
+  int selectedIndex;
+
+  if (!length) return -1;
+
+  std::cout << "Select an index to show: ";
+  while (!(std::cin >> selectedIndex) || selectedIndex >= length || selectedIndex < 0) {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Invalid input. Please enter an index between 0 and " << length - 1 << ": ";
+  }
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+  return selectedIndex;
+}
+
 void searchContact(PhoneBook *phonebook) {
   printContactsTable(phonebook);
+  int selectedIndex = selectContact(phonebook);
+  (void)selectedIndex;
+  // printContactInfo(phonebook, selectedIndex); // return if selectedIndex is -1
 }
 
 void inputLoop(PhoneBook *phonebook) {
@@ -63,12 +83,20 @@ void inputLoop(PhoneBook *phonebook) {
     if (!isValidInput(input)) printUsage();
     if (input == "ADD") addContact(phonebook);
     if (input == "SEARCH") searchContact(phonebook);
-    if (input == "EXIT" || input == "") break;
+    if (input == "EXIT" || input.empty()) break;
   }
 }
 
 int main(void) {
   PhoneBook phonebook;
+  Contact newContact;
+  newContact.setFirstName("Guilhermo");
+  newContact.setLastName("Masid");
+  newContact.setNickname("gmasid");
+  newContact.setPhoneNumber("24988395623");
+  newContact.setDarkestSecret("Beituful");
+  phonebook.addContact(newContact);
+
   printUsage();
   inputLoop(&phonebook);
 }

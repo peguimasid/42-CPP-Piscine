@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:32:35 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 12:12:16 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void printUsage() {
 }
 
 bool isValidInput(std::string input) {
+  if (input.empty()) return true;
+
   return input == "ADD" || input == "SEARCH" || input == "EXIT";
 }
 
@@ -43,7 +45,6 @@ std::string truncate(std::string str) {
 
 std::string getInput(std::string prompt) {
   std::string input;
-
   std::cout << prompt;
 
   std::getline(std::cin, input);
