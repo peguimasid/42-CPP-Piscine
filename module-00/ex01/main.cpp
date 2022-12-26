@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 19:44:14 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:11:17 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 void addContact(PhoneBook *phonebook) {
   Contact newContact;
 
-  newContact.setFirstName(getInputString("First Name: "));
-  newContact.setLastName(getInputString("Last Name: "));
-  newContact.setNickname(getInputString("Nickname: "));
-  newContact.setPhoneNumber(getInputString("Phone Number: "));
-  newContact.setDarkestSecret(getInputString("Darkest Secret: "));
+  newContact.setFirstName(getInput("First Name: "));
+  newContact.setLastName(getInput("Last Name: "));
+  newContact.setNickname(getInput("Nickname: "));
+  newContact.setPhoneNumber(getInput("Phone Number: "));
+  newContact.setDarkestSecret(getInput("Darkest Secret: "));
   phonebook->addContact(newContact);
 }
 
@@ -69,7 +69,7 @@ void searchContact(PhoneBook *phonebook) {
 
 void inputLoop(PhoneBook *phonebook) {
   while (true) {
-    std::string input = getInputString("Enter a command: ");
+    std::string input = getInput("Enter a command: ");
 
     if (!isValidInput(input)) printUsage();
     if (input == "ADD") addContact(phonebook);

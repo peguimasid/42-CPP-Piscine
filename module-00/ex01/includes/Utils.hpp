@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:01:16 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 19:14:40 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:11:08 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 
-std::string getInputString(std::string prompt);
+std::string getInput(std::string prompt);
 std::string truncate(std::string str);
 
 void printUsage();

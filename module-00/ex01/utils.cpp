@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 20:16:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:10:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ std::string truncate(std::string str) {
   return str.length() > 10 ? str.substr(0, 9) + "." : str;
 }
 
-std::string getInputString(std::string prompt) {
+std::string getInput(std::string prompt) {
   std::string input;
 
   std::cout << prompt;
