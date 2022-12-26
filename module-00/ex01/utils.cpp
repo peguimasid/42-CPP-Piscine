@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/25 21:10:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/25 21:25:37 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ std::string getInput(std::string prompt) {
 
   std::cout << prompt;
 
-  getline(std::cin, input);
-
-  // if (input.empty()) return getInputString(prompt);
+  std::getline(std::cin, input);
 
   return input;
 }
