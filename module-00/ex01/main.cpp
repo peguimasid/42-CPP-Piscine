@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 12:11:25 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 12:23:43 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,24 @@ int selectContact(PhoneBook *phonebook) {
   return selectedIndex;
 }
 
+void printContactInfo(PhoneBook *phonebook, int selectedIndex) {
+  if (selectedIndex < 0) return;
+
+  Contact contact = phonebook->getContact(selectedIndex);
+
+  std::cout << "\033[0;34m";
+  std::cout << "First name - " << contact.getFirstName() << std::endl;
+  std::cout << "Last name - " << contact.getLastName() << std::endl;
+  std::cout << "Nickname - " << contact.getNickname() << std::endl;
+  std::cout << "Phone number - " << contact.getPhoneNumber() << std::endl;
+  std::cout << "Darkest secret - " << contact.getDarkestSecret() << std::endl;
+  std::cout << "\033[0m" << std::endl;
+}
+
 void searchContact(PhoneBook *phonebook) {
   printContactsTable(phonebook);
   int selectedIndex = selectContact(phonebook);
-  (void)selectedIndex;
-  // printContactInfo(phonebook, selectedIndex); // return if selectedIndex is -1
+  printContactInfo(phonebook, selectedIndex);
 }
 
 void inputLoop(PhoneBook *phonebook) {
@@ -89,14 +102,6 @@ void inputLoop(PhoneBook *phonebook) {
 
 int main(void) {
   PhoneBook phonebook;
-  Contact newContact;
-  newContact.setFirstName("Guilhermo");
-  newContact.setLastName("Masid");
-  newContact.setNickname("gmasid");
-  newContact.setPhoneNumber("24988395623");
-  newContact.setDarkestSecret("Beituful");
-  phonebook.addContact(newContact);
-
   printUsage();
   inputLoop(&phonebook);
 }
