@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:11:48 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 11:32:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ void printUsage() {
 
 bool isValidInput(std::string input) {
   return input == "ADD" || input == "SEARCH" || input == "EXIT";
+}
+
+void emptyInputError() {
+  std::cout << "\033[0;31m";
+  std::cout << "Empty inputs are not allowed" << std::endl;
+  std::cout << "\033[0m";
+}
+
+void emptyTableWarning() {
+  std::cout << "\033[0;33m";
+  std::cout << "Table is empty" << std::endl;
+  std::cout << "\033[0m";
 }
 
 std::string truncate(std::string str) {

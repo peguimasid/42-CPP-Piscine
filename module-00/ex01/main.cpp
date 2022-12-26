@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:20:45 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 11:32:52 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 #include "./includes/Contact.hpp"
 #include "./includes/PhoneBook.hpp"
 #include "./includes/Utils.hpp"
-
-void emptyInputError() {
-  std::cout << "\033[0;31m";
-  std::cout << "Empty inputs are not allowed" << std::endl;
-  std::cout << "\033[0m";
-}
 
 void addContact(PhoneBook *phonebook) {
   Contact newContact;
@@ -49,10 +43,7 @@ void addContact(PhoneBook *phonebook) {
 void searchContact(PhoneBook *phonebook) {
   int length = phonebook->getCount();
 
-  if (!length) {
-    std::cout << "Table is empty" << std::endl;
-    return;
-  }
+  if (!length) return emptyTableWarning();
   printHeader();
   for (int i = 0; i < length; i++) {
     printContactRow(i, phonebook->getContact(i));
