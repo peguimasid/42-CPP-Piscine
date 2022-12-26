@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:12:06 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 11:20:45 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,32 @@
 #include "./includes/PhoneBook.hpp"
 #include "./includes/Utils.hpp"
 
+void emptyInputError() {
+  std::cout << "\033[0;31m";
+  std::cout << "Empty inputs are not allowed" << std::endl;
+  std::cout << "\033[0m";
+}
+
 void addContact(PhoneBook *phonebook) {
   Contact newContact;
+  std::string input;
 
-  newContact.setFirstName(getInput("First Name: "));
-  newContact.setLastName(getInput("Last Name: "));
-  newContact.setNickname(getInput("Nickname: "));
-  newContact.setPhoneNumber(getInput("Phone Number: "));
-  newContact.setDarkestSecret(getInput("Darkest Secret: "));
+  input = getInput("First Name: ");
+  if (input.empty()) return emptyInputError();
+  newContact.setFirstName(input);
+  input = getInput("Last Name: ");
+  if (input.empty()) return emptyInputError();
+  newContact.setLastName(input);
+  input = getInput("Nickname: ");
+  if (input.empty()) return emptyInputError();
+  newContact.setNickname(input);
+  input = getInput("Phone Number: ");
+  if (input.empty()) return emptyInputError();
+  newContact.setPhoneNumber(input);
+  input = getInput("Darkest Secret: ");
+  if (input.empty()) return emptyInputError();
+  newContact.setDarkestSecret(input);
+
   phonebook->addContact(newContact);
 }
 
