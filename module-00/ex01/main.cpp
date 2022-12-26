@@ -6,11 +6,12 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 12:28:01 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 18:07:38 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include <string>
 
 #include "./includes/Contact.hpp"
