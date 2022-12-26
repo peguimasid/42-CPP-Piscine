@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 11:32:52 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/26 11:38:17 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,20 @@ void addContact(PhoneBook *phonebook) {
   phonebook->addContact(newContact);
 }
 
-void searchContact(PhoneBook *phonebook) {
+void printContactsTable(PhoneBook *phonebook) {
   int length = phonebook->getCount();
 
   if (!length) return emptyTableWarning();
+
   printHeader();
   for (int i = 0; i < length; i++) {
     printContactRow(i, phonebook->getContact(i));
   }
   printFooter();
+}
+
+void searchContact(PhoneBook *phonebook) {
+  printContactsTable(phonebook);
 }
 
 void inputLoop(PhoneBook *phonebook) {
