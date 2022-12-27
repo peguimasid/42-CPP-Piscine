@@ -6,11 +6,11 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:55:58 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/27 18:07:34 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/27 18:11:14 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Account.hpp"
+#include "Account.hpp"
 
 #include <iomanip>
 #include <iostream>
