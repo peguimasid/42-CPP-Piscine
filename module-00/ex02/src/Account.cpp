@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:55:58 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/27 17:48:31 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/27 17:54:27 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ Account::Account(int initial_deposit) {
   this->_accountIndex = _nbAccounts;
   this->_totalAmount += initial_deposit;
   this->_nbAccounts++;
+  this->_nbDeposits = 0;
+  this->_nbWithdrawals = 0;
   _displayTimestamp();
   std::cout << "index:" << this->_accountIndex << ";";
   std::cout << "amount:" << this->_amount << ";";
@@ -32,7 +34,10 @@ Account::Account(int initial_deposit) {
 }
 
 Account::~Account() {
-  this->_amount = 0;
+  _displayTimestamp();
+  std::cout << "index:" << this->_accountIndex << ";";
+  std::cout << "amount:" << this->_amount << ";";
+  std::cout << "closed" << std::endl;
 }
 
 void Account::makeDeposit(int deposit) {
@@ -41,7 +46,7 @@ void Account::makeDeposit(int deposit) {
   std::cout << "p_amount:" << this->_amount << ";";
   std::cout << "deposit:" << deposit << ";";
   std::cout << "amount:" << this->_amount + deposit << ";";
-  std::cout << "nb_deposits:" << this->_nbDeposits + 1 << ";";
+  std::cout << "nb_deposits:" << this->_nbDeposits + 1;
   std::cout << std::endl;
 
   this->_amount += deposit;
@@ -67,6 +72,8 @@ bool Account::Account::makeWithdrawal(int withdrawal) {
   std::cout << "nb_withdrawals:" << this->_nbWithdrawals + 1 << std::endl;
   this->_amount -= withdrawal;
   this->_totalAmount -= withdrawal;
+  this->_nbWithdrawals++;
+  this->_totalNbWithdrawals++;
   return true;
 }
 
@@ -83,7 +90,7 @@ void Account::displayStatus(void) const {
   std::cout << "index:" << this->_accountIndex << ";";
   std::cout << "amount:" << this->_amount << ";";
   std::cout << "deposits:" << this->_nbDeposits << ";";
-  std::cout << "withdrawals:" << this->_nbWithdrawals << ";";
+  std::cout << "withdrawals:" << this->_nbWithdrawals;
   std::cout << std::endl;
 }
 
