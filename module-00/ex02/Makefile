@@ -3,7 +3,7 @@ NAME = account
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = src/main.cpp
+SRCS = src/Account.cpp tests.cpp
 
 all: $(NAME)
 
