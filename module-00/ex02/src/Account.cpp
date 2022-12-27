@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:55:58 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/27 17:12:15 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/27 17:23:44 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit) {
   this->_amount = initial_deposit;
+  this->_accountIndex = _nbAccounts;
+  _nbAccounts++;
+  std::cout << "index:" << this->_accountIndex << ";";
+  std::cout << "amount:" << this->_amount << ";";
+  std::cout << "created" << std::endl;
 }
 
 Account::~Account() {
@@ -37,9 +42,12 @@ bool Account::Account::makeWithdrawal(int withdrawal) {
 }
 
 void Account::displayAccountsInfos(void) {
-  std::cout << "index:" << _nbAccounts << ";";
+  std::cout << "accounts:" << _nbAccounts << ";";
+  std::cout << "total:" << _totalAmount << ";";
+  std::cout << "deposits:" << _totalNbDeposits << ";";
+  std::cout << "withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 void Account::displayStatus(void) const {
-  std::cout << "index:" << _nbAccounts << ";";
+  std::cout << "IGNORE THIS" << std::endl;
 }
