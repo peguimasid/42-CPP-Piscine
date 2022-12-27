@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 17:13:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 18:07:38 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/27 11:52:28 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,29 @@ void printContactsTable(PhoneBook *phonebook) {
 
 int selectContact(PhoneBook *phonebook) {
   int length = phonebook->getCount();
-  int selectedIndex;
 
   if (!length) return -1;
 
-  std::cout << "Select an index to show: ";
-  while (!(std::cin >> selectedIndex) || selectedIndex >= length || selectedIndex < 0) {
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "Invalid input. Please enter an index between 0 and " << length - 1 << ": ";
-  }
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  try {
+    std::string input = getInput("Select an index to show: ");
 
-  return selectedIndex;
+    if (input.empty()) {
+      throw std::invalid_argument("Empty inputs are not allowed");
+    }
+
+    int selectedIndex = stoi(input);
+
+    if (selectedIndex < 0 || selectedIndex >= length) {
+      throw std::invalid_argument("You provide an out of range value");
+    }
+    return selectedIndex;
+  } catch (std::invalid_argument &error) {
+    return throwError(error.what());
+  } catch (...) {
+    return throwError("Please provide an valid input");
+  }
+
+  return -1;
 }
 
 void printContactInfo(PhoneBook *phonebook, int selectedIndex) {
@@ -76,11 +86,11 @@ void printContactInfo(PhoneBook *phonebook, int selectedIndex) {
   Contact contact = phonebook->getContact(selectedIndex);
 
   std::cout << "\033[0;35m";
-  std::cout << "First name - " << contact.getFirstName() << std::endl;
-  std::cout << "Last name - " << contact.getLastName() << std::endl;
-  std::cout << "Nickname - " << contact.getNickname() << std::endl;
-  std::cout << "Phone number - " << contact.getPhoneNumber() << std::endl;
-  std::cout << "Darkest secret - " << contact.getDarkestSecret() << std::endl;
+  std::cout << "First name:     " << contact.getFirstName() << std::endl;
+  std::cout << "Last name:      " << contact.getLastName() << std::endl;
+  std::cout << "Nickname:       " << contact.getNickname() << std::endl;
+  std::cout << "Phone number:   " << contact.getPhoneNumber() << std::endl;
+  std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
   std::cout << "\033[0m" << std::endl;
 }
 

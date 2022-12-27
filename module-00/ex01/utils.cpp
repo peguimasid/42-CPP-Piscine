@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 00:00:15 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/26 12:12:16 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/27 11:40:05 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ void emptyInputError() {
   std::cout << "\033[0;31m";
   std::cout << "Empty inputs are not allowed" << std::endl;
   std::cout << "\033[0m";
+}
+
+int throwError(std::string error) {
+  std::cout << "\033[0;31m";
+  std::cout << error << std::endl;
+  std::cout << "\033[0m";
+  return -1;
 }
 
 void emptyTableWarning() {
