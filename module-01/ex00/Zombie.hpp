@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:42:46 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/28 13:49:01 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/28 13:56:11 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,6 @@ class Zombie {
 
   void announce();
 };
+
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
