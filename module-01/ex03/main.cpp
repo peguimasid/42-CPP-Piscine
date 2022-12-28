@@ -6,12 +6,16 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:02:44 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/28 17:03:06 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:10:17 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Weapon.hpp"
 
 int main() {
-  std::cout << "Hello world" << std::endl;
+  Weapon weapon;
+
+  weapon.setType("Glock");
+
+  std::cout << weapon.getType() << std::endl;
 }
