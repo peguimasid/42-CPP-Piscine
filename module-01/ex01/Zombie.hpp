@@ -6,9 +6,12 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:42:46 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/28 14:39:56 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:43:30 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
 #include <iostream>
 
@@ -24,3 +27,5 @@ class Zombie {
 };
 
 Zombie* zombieHorde(int N, std::string name);
+
+#endif
