@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:50:30 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/29 17:47:48 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/29 17:53:28 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ int main(int argc, char **argv) {
     return error("Unable to read file");
   }
   if (inputFile.peek() == std::ifstream::traits_type::eof()) {
-    inputFile.close();
     return error("File is empty");
   }
 
   std::ofstream outputFile(filename + ".replace");
   std::string currentLine;
+
+  while (getline(inputFile, currentLine)) {
+    outputFile << currentLine << std::endl;
+  }
 
   return 0;
 }
