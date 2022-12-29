@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:50:30 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/29 17:53:28 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/29 17:54:17 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int main(int argc, char **argv) {
   while (getline(inputFile, currentLine)) {
     outputFile << currentLine << std::endl;
   }
+
+  inputFile.close();
+  outputFile.close();
 
   return 0;
 }
