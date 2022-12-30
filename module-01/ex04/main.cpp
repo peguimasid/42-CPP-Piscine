@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:50:30 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/29 18:44:41 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/30 15:35:39 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ std::string replaceLine(std::string currentLine, std::string s1, std::string s2)
 
   int foundIndex = result.find(s1);
   while (foundIndex >= 0) {
-    result = result.substr(0, foundIndex) + s2 + result.substr(foundIndex + s1.size(), result.size() - 1);
+    result.erase(foundIndex, s1.size()).insert(foundIndex, s2);
     foundIndex = result.find(s1);
   }
 
