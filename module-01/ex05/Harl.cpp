@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:44:39 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/30 17:50:28 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/31 17:44:34 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,16 @@ void Harl::error() {
 }
 
 void Harl::complain(std::string level) {
-  if (level == "DEBUG") return this->debug();
-  if (level == "INFO") return this->info();
-  if (level == "WARNING") return this->warning();
-  if (level == "ERROR") return this->error();
+  void (Harl::*levelFunctions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+  std::string levelMessages[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+  int index = -1;
+
+  for (int i = 0; i < 4; i++) {
+    if (levelMessages[i] == level) index = i;
+  }
+
+  if (index == -1) return;
+
+  return (this->*levelFunctions[index])();
 }
