@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:50:30 by gmasid            #+#    #+#             */
-/*   Updated: 2022/12/30 15:35:39 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/12/31 00:04:57 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ std::string replaceLine(std::string currentLine, std::string s1, std::string s2)
   std::string result = currentLine;
 
   int foundIndex = result.find(s1);
+  int startIndex = 0;
   while (foundIndex >= 0) {
     result.erase(foundIndex, s1.size()).insert(foundIndex, s2);
-    foundIndex = result.find(s1);
+    startIndex = foundIndex + s1.size();
+    foundIndex = result.find(s1, startIndex);
   }
 
   return result;
@@ -50,10 +52,7 @@ int main(int argc, char **argv) {
   if (inputFile.peek() == std::ifstream::traits_type::eof()) {
     return error("File is empty");
   }
-  if (s1 == s2) {
-    return error("s1 is equal to s2");
-  }
-  if (s1.size() == 0 || s2.size() == 0) {
+  if (!s1.size() || !s2.size()) {
     return error("Strings cannot be empty");
   }
 
