@@ -6,31 +6,33 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:52 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/03 18:59:57 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/03 19:41:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_H
 #define FIXED_H
 
+#include <cmath>
 #include <iostream>
 
 class Fixed {
  private:
-  int _intValue;
-  float _floatValue;
+  int _value;
   static const int _fractionBits = 8;
 
  public:
   Fixed();
-  Fixed(int initialInteger);
-  Fixed(float initialFloat);
-  Fixed(const Fixed &fixed);
-  Fixed &operator=(const Fixed &fixed);
+  Fixed(int initialValue);
+  Fixed(float initialValue);
+  Fixed(const Fixed& fixed);
+  Fixed& operator=(const Fixed& fixed);
   ~Fixed();
 
-  int getRawBits();
-  void setRawBits(int const raw);
+  int toInt(void) const;
+  float toFloat(void) const;
 };
+
+std::ostream& operator<<(std::ostream& output, const Fixed& fixed);
 
 #endif
