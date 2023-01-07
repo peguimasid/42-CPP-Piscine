@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:52 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 18:11:19 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 18:11:46 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Fixed {
   Fixed operator*(const Fixed& other);
   Fixed operator/(const Fixed& other);
 
+  // Member functions
   int getRawBits() const;
   void setRawBits(int const raw);
 
