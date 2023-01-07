@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:52 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 16:32:10 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 17:09:44 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed {
   // Copy assignment operator
   Fixed& operator=(const Fixed& fixed);
 
-  // Arithmetic operators
+  // Comparison operators
   bool operator>(const Fixed& fixed);
   bool operator>=(const Fixed& fixed);
   bool operator<(const Fixed& fixed);
@@ -40,6 +40,12 @@ class Fixed {
 
   bool operator==(const Fixed& fixed);
   bool operator!=(const Fixed& fixed);
+
+  // Arithmetic operators
+  Fixed operator+(const Fixed& other);
+
+  int getRawBits() const;
+  void setRawBits(int const raw);
 
   int toInt(void) const;
   float toFloat(void) const;
