@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:48 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 18:05:02 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 18:10:33 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ Fixed Fixed::operator/(const Fixed& other) {
   return result;
 }
 
+// Member functions
 int Fixed::getRawBits() const {
   return this->_value;
 }
