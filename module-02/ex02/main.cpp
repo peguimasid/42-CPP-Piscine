@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 16:55:14 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 17:24:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
   Fixed a(10);
-  Fixed b(10);
+  Fixed b(30);
 
   std::cout << a << std::endl;
   std::cout << b << std::endl;
@@ -26,6 +26,7 @@ int main() {
   std::cout << (b == a) << std::endl;
   std::cout << (b != a) << std::endl;
   std::cout << (b + a) << std::endl;
+  std::cout << (b - a) << std::endl;
   return 0;
 }
 
