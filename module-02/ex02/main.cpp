@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 19:55:46 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 20:11:56 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int main() {
   b++;
   std::cout << (b) << std::endl;
   std::cout << (++a) << std::endl;
+  b--;
+  std::cout << (b) << std::endl;
+  std::cout << (--a) << std::endl;
   return 0;
 }
 

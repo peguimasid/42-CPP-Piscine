@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:48 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 19:56:23 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 20:05:30 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,20 @@ Fixed Fixed::operator++(int) {
   return tmp;
 }
 
+Fixed Fixed::operator--(int) {
+  Fixed tmp;
+  tmp.setRawBits(this->_value);
+  this->_value--;
+  return tmp;
+}
+
 Fixed& Fixed::operator++(void) {
   this->_value++;
+  return *this;
+}
+
+Fixed& Fixed::operator--(void) {
+  this->_value--;
   return *this;
 }
 

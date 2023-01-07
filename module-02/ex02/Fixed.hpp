@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:52 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 19:55:52 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 20:04:48 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ class Fixed {
 
   // Increment/Decrement operators
   Fixed operator++(int);
+  Fixed operator--(int);
   Fixed& operator++(void);
+  Fixed& operator--(void);
 
   // Member functions
   int getRawBits() const;
