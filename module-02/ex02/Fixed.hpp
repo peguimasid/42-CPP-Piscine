@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:52 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 20:04:48 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 23:46:21 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ class Fixed {
   Fixed operator--(int);
   Fixed& operator++(void);
   Fixed& operator--(void);
+
+  // Min/Max
+  static Fixed& min(Fixed& first, Fixed& second);
+  static const Fixed& min(const Fixed& first, const Fixed& second);
+  static Fixed& max(Fixed& first, Fixed& second);
+  static const Fixed& max(const Fixed& first, const Fixed& second);
 
   // Member functions
   int getRawBits() const;

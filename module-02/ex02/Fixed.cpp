@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:02:48 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/07 20:05:30 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/07 23:46:34 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,23 @@ Fixed& Fixed::operator++(void) {
 Fixed& Fixed::operator--(void) {
   this->_value--;
   return *this;
+}
+
+// Min/Max
+Fixed& Fixed::min(Fixed& first, Fixed& second) {
+  return first._value < second._value ? first : second;
+}
+
+const Fixed& Fixed::min(const Fixed& first, const Fixed& second) {
+  return first._value < second._value ? first : second;
+}
+
+Fixed& Fixed::max(Fixed& first, Fixed& second) {
+  return first._value > second._value ? first : second;
+}
+
+const Fixed& Fixed::max(const Fixed& first, const Fixed& second) {
+  return first._value > second._value ? first : second;
 }
 
 // Member functions
