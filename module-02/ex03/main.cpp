@@ -6,15 +6,30 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/09 19:46:49 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/09 19:58:52 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
+// 10
+// 9
+// 8   (2, 7)            (8, 7)
+// 7     *                 *
+// 6
+// 5
+// 4
+// 3
+// 2                  (7, 1)
+// 1                    *
+// 0  1  2  3  4  5  6  7  8  9  10
+
 int main() {
-  Point point(4, 5);
-  std::cout << "x = " << point.getX() << std::endl;
-  std::cout << "y = " << point.getY() << std::endl;
+  Point A(2, 7);
+  Point B(8, 7);
+  Point C(7, 1);
+  std::cout << "A: x = " << A.getX() << " | y = " << A.getY() << std::endl;
+  std::cout << "B: x = " << B.getX() << " | y = " << B.getY() << std::endl;
+  std::cout << "C: x = " << C.getX() << " | y = " << C.getY() << std::endl;
   return 0;
 }
