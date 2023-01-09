@@ -6,13 +6,15 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/09 19:20:00 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/09 19:46:49 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main() {
-  std::cout << "Hello World" << std::endl;
+  Point point(4, 5);
+  std::cout << "x = " << point.getX() << std::endl;
+  std::cout << "y = " << point.getY() << std::endl;
   return 0;
 }
