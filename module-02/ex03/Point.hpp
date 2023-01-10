@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:22:23 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/09 19:45:41 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/10 14:35:16 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Point {
   Point& operator=(const Point& point);
 
   // Getters
-  const Fixed getX();
-  const Fixed getY();
+  const Fixed getX() const;
+  const Fixed getY() const;
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);

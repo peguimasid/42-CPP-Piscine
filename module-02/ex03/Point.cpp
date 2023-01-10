@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:32:37 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/09 19:47:40 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/10 14:35:26 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Point& Point::operator=(const Point& point) {
   return *this;
 }
 
-const Fixed Point::getX() {
+const Fixed Point::getX() const {
   return this->_x;
 }
 
-const Fixed Point::getY() {
+const Fixed Point::getY() const {
   return this->_y;
 }

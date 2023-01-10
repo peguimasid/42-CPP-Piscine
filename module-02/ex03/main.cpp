@@ -6,30 +6,48 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/09 19:58:52 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/10 16:12:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-// 10
-// 9
-// 8   (2, 7)            (8, 7)
-// 7     *                 *
-// 6
-// 5
-// 4
-// 3
-// 2                  (7, 1)
-// 1                    *
-// 0  1  2  3  4  5  6  7  8  9  10
+void print_triangle(Point const a, Point const b, Point const c, Point const point) {
+  for (int i = 0; i <= 20; i++) {
+    for (int j = 0; j <= 20; j++) {
+      Point P(i, j);
+      if (a.getX().toFloat() == P.getX().toFloat() && a.getY().toFloat() == P.getY().toFloat())
+        std::cout << " * ";
+      else if (b.getX().toFloat() == P.getX().toFloat() && b.getY().toFloat() == P.getY().toFloat())
+        std::cout << " * ";
+      else if (c.getX().toFloat() == P.getX().toFloat() && c.getY().toFloat() == P.getY().toFloat())
+        std::cout << " * ";
+      else if (point.getX().toFloat() == P.getX().toFloat() && point.getY().toFloat() == P.getY().toFloat())
+        std::cout << " P ";
+      else if (bsp(a, b, c, P) == true)
+        std::cout << " . ";
+      else
+        std::cout << "   ";
+    }
+    std::cout << std::endl;
+  }
+}
 
 int main() {
-  Point A(2, 7);
-  Point B(8, 7);
-  Point C(7, 1);
-  std::cout << "A: x = " << A.getX() << " | y = " << A.getY() << std::endl;
-  std::cout << "B: x = " << B.getX() << " | y = " << B.getY() << std::endl;
-  std::cout << "C: x = " << C.getX() << " | y = " << C.getY() << std::endl;
+  Point A(5, 10);
+  Point B(20, 0);
+  Point C(20, 20);
+
+  for (int i = 0; i <= 20; i++) {
+    for (int j = 0; j <= 20; j++) {
+      Point P(i, j);
+      print_triangle(A, B, C, P);
+      std::cout << "Point(" << P.getX() << ", " << P.getY() << ")";
+      std::cout << " => is inside: " << (bsp(A, B, C, P) ? "true" : "false") << std::endl;
+      std::cout << std::endl;
+      std::cout << "--------------------------------" << std::endl;
+    }
+  }
+
   return 0;
 }
