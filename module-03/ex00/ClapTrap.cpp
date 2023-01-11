@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 18:52:21 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 19:09:03 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,12 @@ ClapTrap::ClapTrap(const ClapTrap& other) {
 
 ClapTrap::~ClapTrap() {
   std::cout << "Destructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+  this->_name = other._name;
+  this->_hitPoints = other._hitPoints;
+  this->_energyPoints = other._energyPoints;
+  this->_attackDamage = other._attackDamage;
+  return *this;
 }
