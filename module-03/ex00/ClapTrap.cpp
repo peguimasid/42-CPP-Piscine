@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 19:52:03 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 20:00:50 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,12 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
   this->_hitPoints -= amount;
   std::cout << "ClapTrap " << this->_name << " receives an attack causing " << amount << " of damage. Points left: " << this->_hitPoints << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+  if (!this->_energyPoints) return message("ClapTrap " + this->_name + " don't have enough points to be repaired");
+
+  this->_hitPoints += amount;
+  this->_energyPoints--;
+  std::cout << "ClapTrap " << this->_name << " is being healed by: " << amount << " points. Final Hitpoints is: " << this->_hitPoints << std::endl;
 }
