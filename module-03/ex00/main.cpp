@@ -6,13 +6,15 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 18:27:34 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 19:23:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "ClapTrap.hpp"
 
 int main(void) {
-  std::cout << "Hello World" << std::endl;
+  ClapTrap homer("Homer");
+
+  homer.attack("Bart");
   return 0;
 }
