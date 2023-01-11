@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/10 16:12:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 18:22:42 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void print_triangle(Point const a, Point const b, Point const c, Point const poi
   for (int i = 0; i <= 20; i++) {
     for (int j = 0; j <= 20; j++) {
       Point P(i, j);
-      if (a.getX().toFloat() == P.getX().toFloat() && a.getY().toFloat() == P.getY().toFloat())
+      if (point.getX().toFloat() == P.getX().toFloat() && point.getY().toFloat() == P.getY().toFloat())
+        std::cout << " P ";
+      else if (a.getX().toFloat() == P.getX().toFloat() && a.getY().toFloat() == P.getY().toFloat())
         std::cout << " * ";
       else if (b.getX().toFloat() == P.getX().toFloat() && b.getY().toFloat() == P.getY().toFloat())
         std::cout << " * ";
       else if (c.getX().toFloat() == P.getX().toFloat() && c.getY().toFloat() == P.getY().toFloat())
         std::cout << " * ";
-      else if (point.getX().toFloat() == P.getX().toFloat() && point.getY().toFloat() == P.getY().toFloat())
-        std::cout << " P ";
       else if (bsp(a, b, c, P) == true)
         std::cout << " . ";
       else
