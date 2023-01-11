@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 19:37:07 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 19:52:03 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!this->_energyPoints) return message("You don't have enough points");
-  if (!this->_hitPoints) return message("You're dead");
+  if (!this->_energyPoints) return message("ClapTrap " + this->_name + " don't have enough points to attack");
+  if (!this->_hitPoints) return message("ClapTrap " + this->_name + " is already dead an cannot attack");
 
   this->_energyPoints--;
 
@@ -55,10 +55,10 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (!this->_hitPoints) return message(this->_name + " is already dead!");
+  if (!this->_hitPoints) return message("ClapTrap " + this->_name + " is already dead!");
   if (this->_hitPoints <= amount) {
     this->_hitPoints = 0;
-    return message("You killed " + this->_name + ", happy?");
+    return message("ClapTrap " + this->_name + " receives an attack causing his death!");
   }
 
   this->_hitPoints -= amount;
