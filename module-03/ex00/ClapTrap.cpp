@@ -6,13 +6,13 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 19:23:53 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 19:37:07 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void error(std::string message) {
+void message(std::string message) {
   std::cout << message << std::endl;
 }
 
@@ -46,10 +46,21 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!this->_energyPoints) return error("You don't have enough points");
-  if (!this->_hitPoints) return error("You're dead");
+  if (!this->_energyPoints) return message("You don't have enough points");
+  if (!this->_hitPoints) return message("You're dead");
 
   this->_energyPoints--;
 
   std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " << this->_attackDamage << " points of damage!" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+  if (!this->_hitPoints) return message(this->_name + " is already dead!");
+  if (this->_hitPoints <= amount) {
+    this->_hitPoints = 0;
+    return message("You killed " + this->_name + ", happy?");
+  }
+
+  this->_hitPoints -= amount;
+  std::cout << "ClapTrap " << this->_name << " receives an attack causing " << amount << " of damage. Points left: " << this->_hitPoints << std::endl;
 }
