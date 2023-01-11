@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:31:58 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/11 18:37:46 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/11 18:44:40 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ClapTrap {
 
  public:
   // Constructors and Destructors
-  ClapTrap();
+  ClapTrap(std::string name);
   ClapTrap(const ClapTrap& other);
   ~ClapTrap();
 
