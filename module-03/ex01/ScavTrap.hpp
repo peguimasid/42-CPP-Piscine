@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:03:10 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 17:05:45 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 17:45:33 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : private ClapTrap {
- private:
-  /* data */
+class ScavTrap : public ClapTrap {
  public:
+  // Constructors and Destructors
+  ScavTrap();
+  ScavTrap(std::string name);
+  ScavTrap(const ScavTrap& other);
+  ~ScavTrap();
+
+  // Copy assignment operator
+  ScavTrap& operator=(const ScavTrap& other);
 };
 
 #endif
