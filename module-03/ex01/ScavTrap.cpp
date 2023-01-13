@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:13:34 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 19:31:54 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:36:10 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,8 @@ void ScavTrap::attack(const std::string& target) {
   this->_energyPoints--;
 
   std::cout << "ScavTrap " << this->_name << " attacks " << target << " causing " << this->_attackDamage << " points of damage!" << std::endl;
+}
+
+void ScavTrap::guardGate() {
+  std::cout << "ScavTrap " << this->_name << "is in gate keeper mode" << std::endl;
 }

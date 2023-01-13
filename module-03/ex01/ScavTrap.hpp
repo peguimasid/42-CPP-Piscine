@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:03:10 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 19:21:03 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:35:16 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class ScavTrap : public ClapTrap {
 
   // Member functions
   void attack(const std::string& target);
+  void guardGate();
 };
 
 #endif
