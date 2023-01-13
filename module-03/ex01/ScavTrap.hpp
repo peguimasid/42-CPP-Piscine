@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:03:10 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 17:45:33 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:21:03 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ class ScavTrap : public ClapTrap {
 
   // Copy assignment operator
   ScavTrap& operator=(const ScavTrap& other);
+
+  // Member functions
+  void attack(const std::string& target);
 };
 
 #endif

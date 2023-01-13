@@ -6,15 +6,11 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:43:46 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 18:04:24 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:30:09 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-void message(std::string message) {
-  std::cout << message << std::endl;
-}
 
 ClapTrap::ClapTrap() {
   this->_name = "John Doe";
@@ -54,8 +50,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!this->_energyPoints) return message("ClapTrap " + this->_name + " don't have enough points to attack");
-  if (!this->_hitPoints) return message("ClapTrap " + this->_name + " is already dead an cannot attack");
+  if (!this->_energyPoints) {
+    std::cout << "ClapTrap " << this->_name << " don't have enough points to attack" << std::endl;
+    return;
+  }
+  if (!this->_hitPoints) {
+    std::cout << "ClapTrap " << this->_name << " is already dead an cannot attack" << std::endl;
+    return;
+  }
 
   this->_energyPoints--;
 
@@ -63,10 +65,14 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (!this->_hitPoints) return message("ClapTrap" + this->_name + " is already dead!");
+  if (!this->_hitPoints) {
+    std::cout << "ClapTrap" << this->_name << " is already dead!" << std::endl;
+    return;
+  }
   if (this->_hitPoints <= amount) {
     this->_hitPoints = 0;
-    return message("ClapTrap " + this->_name + " receives an attack causing his death!");
+    std::cout << "ClapTrap " << this->_name << " receives an attack causing his death!" << std::endl;
+    return;
   }
 
   this->_hitPoints -= amount;
@@ -74,7 +80,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (!this->_energyPoints) return message("ClapTrap" + this->_name + " don't have enough points to be repaired");
+  if (!this->_energyPoints) {
+    std::cout << "ClapTrap " << this->_name + " don't have enough points to be repaired" << std::endl;
+    return;
+  }
 
   this->_hitPoints += amount;
   this->_energyPoints--;

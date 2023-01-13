@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:13:34 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 17:54:37 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:31:54 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
   ClapTrap::operator=(other);
   std::cout << "ScavTrap copy assignment operator overload called" << std::endl;
   return *this;
+}
+
+void ScavTrap::attack(const std::string& target) {
+  if (!this->_energyPoints) {
+    std::cout << "ScavTrap " << this->_name << " don't have enough points to attack" << std::endl;
+    return;
+  }
+  if (!this->_hitPoints) {
+    std::cout << "ScavTrap " << this->_name << " is already dead an cannot attack" << std::endl;
+    return;
+  }
+
+  this->_energyPoints--;
+
+  std::cout << "ScavTrap " << this->_name << " attacks " << target << " causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
