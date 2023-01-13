@@ -6,30 +6,28 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 17:51:42 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 19:36:56 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int main(void) {
-  ScavTrap homer("Homer");
+  ClapTrap john("John");
+  ClapTrap jim("Jim");
+  ClapTrap joe("Joe");
+  ScavTrap jane("Jane");
 
-  homer.attack("Bart");
-  homer.takeDamage(8);
-  homer.takeDamage(2);
-  homer.takeDamage(1);
-  homer.attack("Lisa");
-  homer.beRepaired(5);
-  homer.beRepaired(3);
-  homer.attack("Lisa");
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  homer.beRepaired(1);
-  return 0;
+  john.attack("Marge");
+  john.attack("Bart");
+  john.attack("Homer");
+  john.takeDamage(5);
+  jim.takeDamage(9);
+  jim.takeDamage(10);
+  joe.beRepaired(10);
+  joe.takeDamage(19);
+  jane.attack("Lisa");
+  jane.takeDamage(99);
+  jane.beRepaired(50);
+  jane.guardGate();
 }
