@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:31:58 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/12 15:42:44 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 17:18:06 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class ClapTrap {
- private:
+ protected:
   std::string _name;
   unsigned int _hitPoints;
   unsigned int _energyPoints;
