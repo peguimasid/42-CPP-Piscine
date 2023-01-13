@@ -6,13 +6,30 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:30:42 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 16:49:00 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/13 17:05:57 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "ScavTrap.hpp"
 
 int main(void) {
-  std::cout << "Hello World" << std::endl;
+  ClapTrap homer("Homer");
+
+  homer.attack("Bart");
+  homer.takeDamage(8);
+  homer.takeDamage(2);
+  homer.takeDamage(1);
+  homer.attack("Lisa");
+  homer.beRepaired(5);
+  homer.beRepaired(3);
+  homer.attack("Lisa");
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
+  homer.beRepaired(1);
   return 0;
 }
