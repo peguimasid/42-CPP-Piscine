@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 17:03:10 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/13 19:35:16 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/18 18:35:28 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
  public:
   // Constructors and Destructors
   ScavTrap();
