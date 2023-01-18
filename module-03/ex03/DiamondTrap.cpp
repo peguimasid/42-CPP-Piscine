@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:17:38 by gmasid            #+#    #+#             */
-/*   Updated: 2023/01/18 18:44:33 by gmasid           ###   ########.fr       */
+/*   Updated: 2023/01/18 18:58:46 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
   std::cout << "DiamondTrap(" << name << ") constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other) {
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(), FragTrap() {
   std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 
@@ -38,25 +38,16 @@ DiamondTrap::~DiamondTrap() {
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
   ClapTrap::operator=(other);
+  ScavTrap();
+  FragTrap();
   std::cout << "DiamondTrap copy assignment operator overload called" << std::endl;
   return *this;
 }
 
 void DiamondTrap::attack(const std::string& target) {
-  if (!this->_energyPoints) {
-    std::cout << "DiamondTrap " << this->_name << " don't have enough points to attack" << std::endl;
-    return;
-  }
-  if (!this->_hitPoints) {
-    std::cout << "DiamondTrap " << this->_name << " is already dead an cannot attack" << std::endl;
-    return;
-  }
-
-  this->_energyPoints--;
-
-  std::cout << "DiamondTrap " << this->_name << " attacks " << target << " causing " << this->_attackDamage << " points of damage!" << std::endl;
+  this->ScavTrap::attack(target);
 }
 
-void DiamondTrap::guardGate() {
-  std::cout << "DiamondTrap " << this->_name << " is in gate keeper mode" << std::endl;
+void DiamondTrap::whoAmI() {
+  std::cout << "I am DiamondTrap(" << this->_name << ") and my ClapTrap is " << this->ClapTrap::_name << std::endl;
 }
