@@ -3,7 +3,7 @@ NAME = poly
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp Animal.cpp
+SRCS = src/main.cpp src/Animal.cpp
 
 all: $(NAME)
 

@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
 Animal::Animal() {
   this->_type = "";

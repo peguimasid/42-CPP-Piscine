@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
 int main(void) {
   const Animal* meta = new Animal();
