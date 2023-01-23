@@ -10,16 +10,18 @@ class Animal {
  public:
   // Constructors and Destructors
   Animal();
-  Animal(std::string name);
+  Animal(std::string type);
   Animal(const Animal& other);
-  ~Animal();
+  virtual ~Animal();
 
   // Copy assignment operator
   Animal& operator=(const Animal& other);
 
-  void attack(const std::string& target);
-  void takeDamage(unsigned int amount);
-  void beRepaired(unsigned int amount);
+  // Getters
+  std::string getType();
+
+  // Member functions
+  virtual void makeSound() const;
 };
 
 #endif
