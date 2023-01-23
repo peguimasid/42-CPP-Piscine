@@ -4,9 +4,6 @@
 #include "Animal.hpp"
 
 class Dog : public Animal {
- protected:
-  std::string _type;
-
  public:
   // Constructors and Destructors
   Dog();
