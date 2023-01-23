@@ -5,8 +5,8 @@
 
 - Module 00: Finished (100%)
 - Module 01: Finished (100%)
-- Module 02: WIP
-- Module 03: WIP
+- Module 02: Finished (100%)
+- Module 03: Finished (100%)
 - Module 04: WIP
 - Module 05: WIP
 - Module 06: WIP
