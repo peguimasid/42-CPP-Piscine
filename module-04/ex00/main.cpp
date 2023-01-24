@@ -1,6 +1,6 @@
-#include "../includes/Animal.hpp"
-#include "../includes/Cat.hpp"
-#include "../includes/Dog.hpp"
+#include "./includes/Animal.hpp"
+#include "./includes/Cat.hpp"
+#include "./includes/Dog.hpp"
 
 int main(void) {
   const Animal* meta = new Animal();
