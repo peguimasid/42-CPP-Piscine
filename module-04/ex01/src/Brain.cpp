@@ -2,7 +2,7 @@
 
 Brain::Brain() {
   for (int i = 0; i < 100; i++) {
-    this->_ideas[i] = "This is idea number " + i + 1;
+    this->_ideas[i] = "This is idea number " + std::to_string(i + 1);
   }
 
   std::cout << "Brain() constructor called" << std::endl;

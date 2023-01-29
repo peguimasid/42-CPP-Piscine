@@ -1,9 +1,9 @@
-NAME = poly
+NAME = brain
 
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp
+SRCS = main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
 
 all: $(NAME)
 
