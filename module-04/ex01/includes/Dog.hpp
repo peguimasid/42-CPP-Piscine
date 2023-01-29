@@ -20,6 +20,7 @@ class Dog : public Animal {
 
   // Member functions
   void makeSound() const;
+  Brain* getBrain();
 };
 
 #endif

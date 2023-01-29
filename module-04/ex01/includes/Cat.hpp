@@ -17,10 +17,10 @@ class Cat : public Animal {
 
   // Copy assignment operator
   Cat& operator=(const Cat& other);
-  Brain* getBrain();
 
   // Member functions
   void makeSound() const;
+  Brain* getBrain();
 };
 
 #endif
