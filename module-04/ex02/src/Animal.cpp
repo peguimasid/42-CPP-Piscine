@@ -28,7 +28,3 @@ Animal& Animal::operator=(const Animal& other) {
 std::string Animal::getType() const {
   return this->_type;
 }
-
-void Animal::makeSound() const {
-  std::cout << "Sorry, i don't have any sound right now, but you can define by inheriting me in another class" << std::endl;
-}

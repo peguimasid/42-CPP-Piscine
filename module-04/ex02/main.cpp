@@ -2,5 +2,16 @@
 #include "includes/Dog.hpp"
 
 int main(void) {
-  std::cout << "Hello World" << std::endl;
+  // Animal capybara("Capybara");
+  // Animal *animal2 = new Animal();
+
+  Animal *cat = new Cat();
+  Animal *dog = new Dog();
+
+  cat->makeSound();
+  dog->makeSound();
+  // capybara.makeSound();
+
+  delete cat;
+  delete dog;
 }
