@@ -9,8 +9,7 @@ class AMateria {
 
  public:
   // Constructors and Destructors
-  AMateria();
-  AMateria(std::string type);
+  AMateria(std::string const& type);
   AMateria(const AMateria& other);
   virtual ~AMateria();
 
