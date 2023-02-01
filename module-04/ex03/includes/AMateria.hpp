@@ -12,8 +12,6 @@ class AMateria {
   AMateria(std::string const& type);
   AMateria(const AMateria& other);
   virtual ~AMateria();
-
-  // Copy assignment operator
   AMateria& operator=(const AMateria& other);
 
   // Getters

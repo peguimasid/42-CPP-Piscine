@@ -9,8 +9,6 @@ class Ice : public AMateria {
   Ice();
   Ice(const Ice& other);
   ~Ice();
-
-  // Copy assignment operator
   Ice& operator=(const Ice& other);
 
   // Member Functions
