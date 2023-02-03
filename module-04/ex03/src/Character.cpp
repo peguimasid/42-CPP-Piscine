@@ -30,6 +30,7 @@ Character& Character::operator=(const Character& other) {
   if (this == &other) return *this;
 
   this->_name = other._name;
+  this->~Character();
   for (int i = 0; i < 4; i++) {
     if (other._materia[i]) {
       this->_materia[i] = other._materia[i]->clone();
