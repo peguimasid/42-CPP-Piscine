@@ -3,8 +3,8 @@
 
 #include <iostream>
 
+#include "../interfaces/ICharacter.hpp"
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
 class Character : public ICharacter {
  protected:

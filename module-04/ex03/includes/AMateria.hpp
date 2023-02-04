@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "ICharacter.hpp"
+#include "../interfaces/ICharacter.hpp"
 
 class AMateria {
  protected:
