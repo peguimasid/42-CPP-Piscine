@@ -38,6 +38,8 @@ Character& Character::operator=(const Character& other) {
       this->_materia[i] = NULL;
     }
   }
+
+  return *this;
 }
 
 std::string const& Character::getName() const {

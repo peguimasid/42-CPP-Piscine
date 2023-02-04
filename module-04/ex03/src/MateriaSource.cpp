@@ -35,6 +35,8 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
       this->_materia[i] = NULL;
     }
   }
+
+  return *this;
 }
 
 void MateriaSource::learnMateria(AMateria* m) {
