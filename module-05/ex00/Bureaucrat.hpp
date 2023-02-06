@@ -15,10 +15,10 @@ class Bureaucrat {
   Bureaucrat &operator=(const Bureaucrat &other);
 
   // Member functions
-  int getName();
+  const std::string getName();
   int getGrade();
-  int incrementGrade();
-  int decrementGrade();
+  void incrementGrade();
+  void decrementGrade();
 
   // Exceptions
   class GradeTooHighException : public std::exception {

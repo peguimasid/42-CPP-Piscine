@@ -18,3 +18,21 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   this->_grade = other._grade;
   return *this;
 }
+
+const std::string Bureaucrat::getName() {
+  return this->_name;
+}
+
+int Bureaucrat::getGrade() {
+  return this->_grade;
+}
+
+void Bureaucrat::incrementGrade() {
+  if (this->_grade == 1) throw Bureaucrat::GradeTooHighException();
+  this->_grade--;
+}
+
+void Bureaucrat::decrementGrade() {
+  if (this->_grade == 150) throw Bureaucrat::GradeTooLowException();
+  this->_grade++;
+}
