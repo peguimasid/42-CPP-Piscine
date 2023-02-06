@@ -36,3 +36,11 @@ void Bureaucrat::decrementGrade() {
   if (this->_grade == 150) throw Bureaucrat::GradeTooLowException();
   this->_grade++;
 }
+
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+  return "Maximum grade is 1";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+  return "Minimum grade is 150";
+}
