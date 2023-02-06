@@ -3,7 +3,7 @@ NAME = bu
 CC = c++
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 all: $(NAME)
 
