@@ -34,3 +34,19 @@ Form &Form::operator=(const Form &other) {
   std::cout << "Cannot be implemented since values are constants" << std::endl;
   return *this;
 }
+
+int Form::getRequiredGradeToSign() const {
+  return this->_requiredGradeToSign;
+}
+
+int Form::getRequiredGradeToExecute() const {
+  return this->_requiredGradeToExecute;
+}
+
+bool Form::getIsSigned() const {
+  return this->_isSigned;
+}
+
+std::string Form::getName() const {
+  return this->_name;
+}
