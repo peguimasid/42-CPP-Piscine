@@ -50,3 +50,12 @@ bool Form::getIsSigned() const {
 std::string Form::getName() const {
   return this->_name;
 }
+
+void Form::beSigned(Bureaucrat &candidate) {
+  if (this->_isSigned) return;
+  if (candidate.getGrade() > this->_requiredGradeToSign) {
+    throw Form::GradeTooLowException();
+  }
+
+  this->_isSigned = true;
+}
