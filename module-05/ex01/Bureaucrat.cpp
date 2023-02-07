@@ -40,6 +40,7 @@ void Bureaucrat::decrementGrade() {
 }
 
 void Bureaucrat::signForm(Form &form) {
+  if (form.getIsSigned()) return;
   try {
     form.beSigned(*this);
     std::cout << *this << " signed " << form << std::endl;
