@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 
+#include "Form.hpp"
+
 class Bureaucrat {
  private:
   const std::string _name;
@@ -19,6 +21,7 @@ class Bureaucrat {
   int getGrade() const;
   void incrementGrade();
   void decrementGrade();
+  void beSigned(Form *form);
 
   // Exceptions
   class GradeTooHighException : public std::exception {
