@@ -59,3 +59,11 @@ void Form::beSigned(Bureaucrat &candidate) {
 
   this->_isSigned = true;
 }
+
+const char *Form::GradeTooHighException::what() const throw() {
+  return "Error: This grade is too high (Max: 1)";
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+  return "Error: This grade is too low (Min: 150)";
+}
