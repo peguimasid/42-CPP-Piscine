@@ -61,11 +61,11 @@ void Form::beSigned(Bureaucrat &candidate) {
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
-  return "Error: This grade is too high (Max: 1)";
+  return "Error: This grade is too high";
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-  return "Error: This grade is too low (Min: 150)";
+  return "Error: This grade is too low";
 }
 
 std::ostream &operator<<(std::ostream &output, const Form &form) {
