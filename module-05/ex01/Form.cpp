@@ -74,4 +74,5 @@ std::ostream &operator<<(std::ostream &output, const Form &form) {
   output << "- Is Signed: " << std::boolalpha << form.getIsSigned() << std::endl;
   output << "- Grade required to sign: " << form.getRequiredGradeToSign() << std::endl;
   output << "- Grade required to execute: " << form.getRequiredGradeToExecute() << std::endl;
+  return output;
 }
