@@ -3,6 +3,8 @@
 
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat {
  private:
   const std::string _name;
