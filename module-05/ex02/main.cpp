@@ -1,5 +1,12 @@
-#include <iostream>
+#include "includes/ShrubberyCreationForm.hpp"
 
 int main() {
-  std::cout << "Hello World" << std::endl;
+  ShrubberyCreationForm homeForm("home");
+  Bureaucrat bu("Gui", 137);
+
+  try {
+    homeForm.action(bu);
+  } catch (std::exception &err) {
+    std::cerr << "Error: " << err.what() << std::endl;
+  }
 }
