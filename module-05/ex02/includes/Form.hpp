@@ -29,6 +29,7 @@ class Form {
 
   // Member functions
   void beSigned(Bureaucrat &candidate);
+  void execute(Bureaucrat const &executor);
 
   class GradeTooHighException : public std::exception {
    public:
