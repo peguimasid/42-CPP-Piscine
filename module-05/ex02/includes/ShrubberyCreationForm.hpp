@@ -4,10 +4,10 @@
 
 class ShrubberyCreationForm : public Form {
  private:
-  const std::string _target;
+  std::string _target;
 
  public:
-  ShrubberyCreationForm(const std::string &name);
+  ShrubberyCreationForm(const std::string &target);
   ShrubberyCreationForm(const ShrubberyCreationForm &other);
   ~ShrubberyCreationForm();
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
