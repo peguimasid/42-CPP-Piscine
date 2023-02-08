@@ -1,5 +1,7 @@
 #pragma once
 
+#include <fstream>
+
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public Form {

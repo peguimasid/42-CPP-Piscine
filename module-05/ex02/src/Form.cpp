@@ -62,7 +62,7 @@ void Form::beSigned(Bureaucrat &candidate) {
   this->_isSigned = true;
 }
 
-void Form::execute(Bureaucrat const &executor) {
+void Form::execute(Bureaucrat const &executor) const {
   if (this->_isSigned) {
     throw Form::AlreadySignedFormException();
   }
