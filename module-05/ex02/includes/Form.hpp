@@ -38,6 +38,10 @@ class Form {
    public:
     virtual const char *what() const throw();
   };
+  class AlreadySignedFormException : public std::exception {
+   public:
+    virtual const char *what() const throw();
+  };
 };
 
 std::ostream &operator<<(std::ostream &output, const Form &form);
