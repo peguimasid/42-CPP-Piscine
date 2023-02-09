@@ -17,7 +17,8 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void RobotomyRequestForm::action(const Bureaucrat &executor) const {
   this->Form::execute(executor);
-  if (rand() % 2 == 0) {
+  srand(time(NULL));
+  if ((rand() % 2) == 0) {
     std::cout << this->_target << " has been successfully robotomized :)" << std::endl;
   } else {
     std::cout << this->_target << " died trying to be robotomized :(" << std::endl;
