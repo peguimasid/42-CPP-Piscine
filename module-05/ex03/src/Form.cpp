@@ -1,0 +1,92 @@
+#include "../includes/Form.hpp"
+
+Form::Form() : _name(""), _requiredGradeToSign(1), _requiredGradeToExecute(1) {
+  this->_isSigned = false;
+}
+
+Form::Form(const std::string &name) : _name(name), _requiredGradeToSign(1), _requiredGradeToExecute(1) {
+  this->_isSigned = false;
+}
+
+Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute)
+    : _name(name),
+      _requiredGradeToSign(gradeToSign),
+      _requiredGradeToExecute(gradeToExecute) {
+  this->_isSigned = false;
+  if (gradeToSign < 1 || gradeToExecute < 1) {
+    throw Form::GradeTooHighException();
+  }
+  if (gradeToSign > 150 || gradeToExecute > 150) {
+    throw Form::GradeTooLowException();
+  }
+}
+
+Form::Form(const Form &other)
+    : _name(other._name),
+      _isSigned(other._isSigned),
+      _requiredGradeToSign(other._requiredGradeToSign),
+      _requiredGradeToExecute(other._requiredGradeToExecute) {}
+
+Form::~Form() {}
+
+Form &Form::operator=(const Form &other) {
+  (void)other;
+  std::cout << "Cannot be implemented since values are constants" << std::endl;
+  return *this;
+}
+
+int Form::getRequiredGradeToSign() const {
+  return this->_requiredGradeToSign;
+}
+
+int Form::getRequiredGradeToExecute() const {
+  return this->_requiredGradeToExecute;
+}
+
+bool Form::getIsSigned() const {
+  return this->_isSigned;
+}
+
+std::string Form::getName() const {
+  return this->_name;
+}
+
+void Form::beSigned(Bureaucrat &candidate) {
+  if (this->_isSigned) {
+    throw Form::AlreadySignedFormException();
+  }
+  if (candidate.getGrade() > this->_requiredGradeToSign) {
+    throw Form::GradeTooLowException();
+  }
+
+  this->_isSigned = true;
+}
+
+void Form::execute(Bureaucrat const &executor) const {
+  if (this->_isSigned) {
+    throw Form::AlreadySignedFormException();
+  }
+  if (executor.getGrade() > this->getRequiredGradeToExecute()) {
+    throw Form::GradeTooLowException();
+  }
+}
+
+const char *Form::GradeTooHighException::what() const throw() {
+  return "grade is too high";
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+  return "grade is too low";
+}
+
+const char *Form::AlreadySignedFormException::what() const throw() {
+  return "the form is already signed";
+}
+
+std::ostream &operator<<(std::ostream &output, const Form &form) {
+  output << "Form " << form.getName() << " =>";
+  output << " s: " << std::boolalpha << form.getIsSigned();
+  output << " | gs: " << form.getRequiredGradeToSign();
+  output << " | ge: " << form.getRequiredGradeToExecute();
+  return output;
+}
