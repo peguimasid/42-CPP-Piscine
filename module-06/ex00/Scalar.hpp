@@ -14,5 +14,7 @@ class Scalar {
  public:
   ~Scalar();
 
-  void convert(const std::string &literal);
+  static void convert(const std::string &literal);
 };
+
+bool isPseudoLiteral(const std::string &literal);
