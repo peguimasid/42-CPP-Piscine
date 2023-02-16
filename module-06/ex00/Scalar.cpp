@@ -53,6 +53,7 @@ void Scalar::convert(const std::string &literal) {
   }
 
   std::cout << "char: " << toChar << std::endl;
+
   if (toChar == "impossible") {
     std::cout << "int: impossible" << std::endl;
   } else {
@@ -65,7 +66,7 @@ void Scalar::convert(const std::string &literal) {
     return;
   }
 
-  if (toChar == "impossible" && toFloat - static_cast<int>(toFloat) == 0) {
+  if (toChar != "impossible" && toFloat - static_cast<int>(toFloat) == 0) {
     std::cout << "float: " << toFloat << ".0f" << std::endl;
     std::cout << "double: " << toDouble << ".0" << std::endl;
     return;
