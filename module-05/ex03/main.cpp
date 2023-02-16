@@ -30,4 +30,8 @@ int main() {
   } catch (std::exception& err) {
     std::cerr << "Error: " << err.what() << std::endl;
   }
+
+  delete form1;
+  delete form2;
+  delete form3;
 }
