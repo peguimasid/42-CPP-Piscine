@@ -14,66 +14,66 @@ Scalar &Scalar::operator=(const Scalar &other) {
 Scalar::~Scalar() {}
 
 void Scalar::convert(const std::string &literal) {
-  std::string toChar = "";
-  int toInt = 0;
-  float toFloat = 0;
-  double toDouble = 0;
+  std::string charValue = "";
+  int intValue = 0;
+  float floatValue = 0.0f;
+  double doubleValue = 0.0;
 
   if (literal.size() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0])) {
-    toChar = literal[0];
-    std::cout << "char: " << toChar << std::endl;
-    std::cout << "int: " << static_cast<int>(toChar[0]) << std::endl;
-    std::cout << "float: " << static_cast<float>(toChar[0]) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(toChar[0]) << ".0" << std::endl;
+    charValue = literal[0];
+    std::cout << "char: " << charValue << std::endl;
+    std::cout << "int: " << static_cast<int>(charValue[0]) << std::endl;
+    std::cout << "float: " << static_cast<float>(charValue[0]) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(charValue[0]) << ".0" << std::endl;
     return;
   }
 
-  toInt = std::atoi(literal.c_str());
+  intValue = std::atoi(literal.c_str());
 
   if (literal[literal.size() - 1] == 'f') {
-    toFloat = std::atof(literal.c_str());
-    toDouble = static_cast<double>(toFloat);
+    floatValue = std::atof(literal.c_str());
+    doubleValue = static_cast<double>(floatValue);
   } else {
-    toDouble = std::atof(literal.c_str());
-    toFloat = static_cast<float>(toDouble);
+    doubleValue = std::atof(literal.c_str());
+    floatValue = static_cast<float>(doubleValue);
   }
 
   if (isPseudoLiteral(literal)) {
-    toChar = "impossible";
+    charValue = "impossible";
   }
 
-  if (toChar.empty() && !std::isprint(toInt)) {
-    toChar = "Non displayable";
+  if (charValue.empty() && !std::isprint(intValue)) {
+    charValue = "Non displayable";
   }
 
-  if (toChar.empty() && std::isprint(toInt)) {
-    toChar = "'";
-    toChar += static_cast<char>(toInt);
-    toChar += "'";
+  if (charValue.empty() && std::isprint(intValue)) {
+    charValue = "'";
+    charValue += static_cast<char>(intValue);
+    charValue += "'";
   }
 
-  std::cout << "char: " << toChar << std::endl;
+  std::cout << "char: " << charValue << std::endl;
 
-  if (toChar == "impossible") {
+  if (charValue == "impossible") {
     std::cout << "int: impossible" << std::endl;
   } else {
-    std::cout << "int: " << toInt << std::endl;
+    std::cout << "int: " << intValue << std::endl;
   }
 
-  if (toChar == "impossible" && toFloat == 0) {
+  if (charValue == "impossible" && floatValue == 0) {
     std::cout << "float: impossible" << std::endl;
     std::cout << "double: impossible" << std::endl;
     return;
   }
 
-  if (toChar != "impossible" && toFloat - static_cast<int>(toFloat) == 0) {
-    std::cout << "float: " << toFloat << ".0f" << std::endl;
-    std::cout << "double: " << toDouble << ".0" << std::endl;
+  if (charValue != "impossible" && floatValue - static_cast<int>(floatValue) == 0) {
+    std::cout << "float: " << floatValue << ".0f" << std::endl;
+    std::cout << "double: " << doubleValue << ".0" << std::endl;
     return;
   }
 
-  std::cout << "float: " << toFloat << "f" << std::endl;
-  std::cout << "double: " << toDouble << std::endl;
+  std::cout << "float: " << floatValue << "f" << std::endl;
+  std::cout << "double: " << doubleValue << std::endl;
 }
 
 bool isPseudoLiteral(const std::string &literal) {
