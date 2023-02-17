@@ -1,5 +1,12 @@
-#include <iostream>
+#include "./includes/A.hpp"
+#include "./includes/B.hpp"
+#include "./includes/Base.hpp"
+#include "./includes/C.hpp"
 
-int main() {
-  std::cout << "Hello World" << std::endl;
-}
+Base* generate(void);
+
+void identify(Base* p);
+
+void identify(Base& p);
+
+int main() {}
