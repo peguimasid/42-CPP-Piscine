@@ -6,3 +6,8 @@ void swap(T &x, T &y) {
   x = y;
   y = tmp;
 }
+
+template <typename T>
+T min(T &x, T &y) {
+  return x < y ? x : y;
+}
