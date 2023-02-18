@@ -1,7 +1,10 @@
+#pragma once
 template <class T>
 class Array {
  private:
-  /* TODO: private args*/
+  T *_array;
+  unsigned int _size;
+
  public:
   // Constructors and Destructors
   Array();
@@ -9,4 +12,8 @@ class Array {
   Array(const Array &other);
   Array &operator=(const Array &other);
   ~Array();
+
+  // Member functions
+  T &operator[](unsigned int index);
+  unsigned int size();
 };
