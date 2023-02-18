@@ -13,4 +13,7 @@ int main() {
   std::cout << "-----MIN------" << std::endl;
   std::cout << "min between x and y = " << min(x, y) << std::endl;
   std::cout << "---------------" << std::endl;
+  std::cout << "-----MAX------" << std::endl;
+  std::cout << "max between x and y = " << max(x, y) << std::endl;
+  std::cout << "---------------" << std::endl;
 }
