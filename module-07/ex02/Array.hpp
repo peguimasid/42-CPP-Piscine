@@ -11,12 +11,12 @@ class Array {
   // Constructors and Destructors
   Array() {
     this->_array = new T[0];
-    this->size = 0;
+    this->_size = 0;
   }
 
   Array(unsigned int n) {
     this->_array = new T[n];
-    this->size = n;
+    this->_size = n;
   }
 
   Array(const Array &other) {
@@ -45,7 +45,7 @@ class Array {
 
   // Member functions
   T &operator[](unsigned int index) {
-    if (index >= this->size) {
+    if (index >= this->_size) {
       throw std::out_of_range("index is out of range");
     }
 
@@ -53,6 +53,6 @@ class Array {
   }
 
   unsigned int size() {
-    return this->size;
+    return this->_size;
   }
 };
