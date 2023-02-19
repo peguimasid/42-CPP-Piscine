@@ -15,7 +15,7 @@ int main(void) {
 
   Array<std::string> names(10);
 
-  for (unsigned int i = 0; i < numbers.size(); i++) {
+  for (unsigned int i = 0; i < names.size(); i++) {
     names[i] = "Character number " + std::to_string(i + 1);
     std::cout << names[i] << std::endl;
   }
