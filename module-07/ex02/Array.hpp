@@ -20,9 +20,9 @@ class Array {
   }
 
   Array(const Array &other) {
-    this->_array = new T[other.size];
-    this->size = other._size;
-    for (int i = 0; i < other._size; i++) {
+    this->_array = new T[other._size];
+    this->_size = other._size;
+    for (unsigned int i = 0; i < other._size; i++) {
       this->_array[i] = other._array[i];
     }
   }
@@ -30,9 +30,9 @@ class Array {
   Array &operator=(const Array &other) {
     if (this == &other) return *this;
 
-    this->_array = new T[other.size];
-    this->size = other._size;
-    for (int i = 0; i < other._size; i++) {
+    this->_array = new T[other._size];
+    this->_size = other._size;
+    for (unsigned int i = 0; i < other._size; i++) {
       this->_array[i] = other._array[i];
     }
 
