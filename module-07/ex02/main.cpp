@@ -12,4 +12,11 @@ int main(void) {
   } catch (std::exception &err) {
     std::cerr << "Error: " << err.what() << std::endl;
   }
+
+  Array<std::string> names(10);
+
+  for (unsigned int i = 0; i < numbers.size(); i++) {
+    names[i] = "Character number " + std::to_string(i + 1);
+    std::cout << names[i] << std::endl;
+  }
 }
