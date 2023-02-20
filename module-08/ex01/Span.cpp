@@ -28,10 +28,27 @@ void Span::addNumber(int num) {
 }
 
 unsigned int Span::shortestSpan() {
+  if (this->_maxSize <= 1 || this->_numbers.size() <= 1) {
+    throw Span::SmallSpanException();
+  }
+
+  unsigned int result = INT_MAX;
+
+  std::vector<int> copy(this->_numbers);
+  std::sort(copy.begin(), copy.end());
+
+  for (unsigned int i = 0; i < copy.size() - 1; i++) {
+    int currentNumber = copy[i];
+    int nextNumber = copy[i + 1];
+    unsigned int diff = std::abs(nextNumber - currentNumber);
+    result = std::min(result, diff);
+  }
+
+  return result;
 }
 
-unsigned int Span::longestSpan() {
-}
+// unsigned int Span::longestSpan() {
+// }
 
 const char *Span::FullSpanException::what() const throw() {
   return "span is full";
