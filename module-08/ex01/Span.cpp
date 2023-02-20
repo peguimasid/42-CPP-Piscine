@@ -19,3 +19,24 @@ Span &Span::operator=(const Span &other) {
 }
 
 Span::~Span() {}
+
+void Span::addNumber(int num) {
+  if (this->_numbers.size() >= this->_maxSize) {
+    throw Span::FullSpanException();
+  }
+  this->_numbers.push_back(num);
+}
+
+unsigned int Span::shortestSpan() {
+}
+
+unsigned int Span::longestSpan() {
+}
+
+const char *Span::FullSpanException::what() const throw() {
+  return "span is full";
+}
+
+const char *Span::SmallSpanException::what() const throw() {
+  return "span size is less than or equal to 1, means nothing to find here";
+}

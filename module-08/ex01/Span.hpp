@@ -19,4 +19,13 @@ class Span {
   // void addNumber(const std::vector<int>::iterator& begin, const std::vector<int>::iterator& end);
   unsigned int shortestSpan();
   unsigned int longestSpan();
+
+  class FullSpanException : public std::exception {
+   public:
+    virtual const char *what() const throw();
+  };
+  class SmallSpanException : public std::exception {
+   public:
+    virtual const char *what() const throw();
+  };
 };
