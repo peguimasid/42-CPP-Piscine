@@ -47,8 +47,19 @@ unsigned int Span::shortestSpan() {
   return result;
 }
 
-// unsigned int Span::longestSpan() {
-// }
+unsigned int Span::longestSpan() {
+  if (this->_maxSize <= 1 || this->_numbers.size() <= 1) {
+    throw Span::SmallSpanException();
+  }
+
+  std::vector<int> copy(this->_numbers);
+  std::sort(copy.begin(), copy.end());
+
+  int first = copy.at(0);
+  int last = copy.at(copy.size() - 1);
+
+  return last - first;
+}
 
 const char *Span::FullSpanException::what() const throw() {
   return "span is full";
