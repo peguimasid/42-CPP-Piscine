@@ -40,7 +40,7 @@ unsigned int Span::shortestSpan() {
   for (unsigned int i = 0; i < copy.size() - 1; i++) {
     int currentNumber = copy[i];
     int nextNumber = copy[i + 1];
-    unsigned int diff = std::abs(nextNumber - currentNumber);
+    unsigned int diff = nextNumber - currentNumber;
     result = std::min(result, diff);
   }
 
