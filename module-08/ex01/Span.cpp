@@ -55,10 +55,10 @@ unsigned int Span::longestSpan() {
   std::vector<int> copy(this->_numbers);
   std::sort(copy.begin(), copy.end());
 
-  int first = copy.at(0);
-  int last = copy.at(copy.size() - 1);
+  int smallerNumber = copy.at(0);
+  int highestNumber = copy.at(copy.size() - 1);
 
-  return last - first;
+  return highestNumber - smallerNumber;
 }
 
 const char *Span::FullSpanException::what() const throw() {
