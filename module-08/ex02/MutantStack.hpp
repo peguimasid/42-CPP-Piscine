@@ -3,7 +3,7 @@
 #include <stack>
 
 template <typename T>
-class MutantStack : public std::stack<T, std::deque<T>> {
+class MutantStack : public std::stack<T, std::deque<T> > {
  public:
   MutantStack(){};
 
@@ -11,9 +11,7 @@ class MutantStack : public std::stack<T, std::deque<T>> {
 
   MutantStack &operator=(const MutantStack &other) {
     if (this == &other) return *this;
-
     this->c = other.c;
-
     return *this;
   }
 
