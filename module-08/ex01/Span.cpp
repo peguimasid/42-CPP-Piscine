@@ -27,6 +27,16 @@ void Span::addNumber(int num) {
   this->_numbers.push_back(num);
 }
 
+void Span::addRange(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end) {
+  unsigned int finalSize = this->_numbers.size() + std::distance(begin, end);
+
+  if (finalSize > this->_maxSize) {
+    throw Span::FullSpanException();
+  }
+
+  this->_numbers.insert(this->_numbers.end(), begin, end);
+}
+
 unsigned int Span::shortestSpan() {
   if (this->_maxSize <= 1 || this->_numbers.size() <= 1) {
     throw Span::SmallSpanException();

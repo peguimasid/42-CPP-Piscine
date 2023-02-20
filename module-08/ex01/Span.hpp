@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 
 class Span {
@@ -17,7 +18,7 @@ class Span {
 
   // Member functions
   void addNumber(int num);
-  // void addRange(const std::vector<int>::iterator& begin, const std::vector<int>::iterator& end);
+  void addRange(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end);
   unsigned int shortestSpan();
   unsigned int longestSpan();
 
