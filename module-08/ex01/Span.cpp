@@ -42,7 +42,7 @@ unsigned int Span::shortestSpan() {
     throw Span::SmallSpanException();
   }
 
-  unsigned int result = INT_MAX;
+  unsigned int result = std::numeric_limits<unsigned int>::max();
 
   std::vector<int> copy(this->_numbers);
   std::sort(copy.begin(), copy.end());
