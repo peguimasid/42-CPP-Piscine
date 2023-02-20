@@ -5,11 +5,10 @@
 class Span {
  private:
   std::vector<int> _numbers;
-  unsigned int _size;
+  unsigned int _maxSize;
 
  public:
   // Constructors and Destructors
-  Span();
   Span(unsigned int N);
   Span(const Span &other);
   Span &operator=(const Span &other);
