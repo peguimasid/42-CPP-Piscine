@@ -7,11 +7,11 @@
 - Module 01: Finished (100%)
 - Module 02: Finished (100%)
 - Module 03: Finished (100%)
-- Module 04: WIP
-- Module 05: WIP
-- Module 06: WIP
-- Module 07: WIP
-- Module 08: WIP
+- Module 04: Finished (100%)
+- Module 05: Finished (100%)
+- Module 06: Finished (100%)
+- Module 07: Finished (100%)
+- Module 08: Finished (100%)
 
 ---
 
