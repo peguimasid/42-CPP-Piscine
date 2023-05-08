@@ -22,6 +22,7 @@ int main(int argc, char **argv) {
   if (argc != 2 || !isValidFile(argv[1])) {
     return error("Error: could not open file.");
   }
-  BitcoinExchange::execute(argv[1]);
+  BitcoinExchange btc;
+  btc.execute(argv[1]);
   return 0;
 }

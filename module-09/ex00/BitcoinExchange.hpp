@@ -14,5 +14,5 @@ class BitcoinExchange {
   BitcoinExchange &operator=(const BitcoinExchange &other);
   ~BitcoinExchange();
 
-  static void execute(const std::string &filename);
+  void execute(const std::string &filename);
 };
