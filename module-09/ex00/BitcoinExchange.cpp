@@ -13,3 +13,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+void BitcoinExchange::execute(const std::string &filename) {
+  std::cout << filename << std::endl;
+}
