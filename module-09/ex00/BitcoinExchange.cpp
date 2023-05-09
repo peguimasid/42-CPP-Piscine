@@ -24,6 +24,8 @@ void parse_data_file() {
   std::string currentLine;
 
   while (getline(inputFile, currentLine)) {
-    std::cout << currentLine << std::endl;
+    std::string date = currentLine.substr(0, 10).erase(4, 1).erase(6, 1);
+    float rate = atof(currentLine.substr(11).c_str());
+    std::cout << date << " " << rate << std::endl;
   }
 }
