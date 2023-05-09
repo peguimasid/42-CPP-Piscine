@@ -14,18 +14,19 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-void BitcoinExchange::execute(const std::string &filename) {
-  (void)filename;
-  parse_data_file();
-}
-
-void parse_data_file() {
+void BitcoinExchange::parse_data_file() {
   std::ifstream inputFile("data.csv");
   std::string currentLine;
 
   while (getline(inputFile, currentLine)) {
     std::string date = currentLine.substr(0, 10).erase(4, 1).erase(6, 1);
     float rate = atof(currentLine.substr(11).c_str());
-    std::cout << date << " " << rate << std::endl;
+    std::cout << rate << std::endl;
+    this->_map.insert(std::make_pair(date, rate));
   }
+}
+
+void BitcoinExchange::execute(const std::string &filename) {
+  (void)filename;
+  parse_data_file();
 }
