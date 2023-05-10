@@ -1,5 +1,12 @@
 #include "BitcoinExchange.hpp"
 
+int error(std::string errorMessage) {
+  std::cout << "\033[0;31m";
+  std::cout << errorMessage << std::endl;
+  std::cout << "\033[0m";
+  return 1;
+}
+
 BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
