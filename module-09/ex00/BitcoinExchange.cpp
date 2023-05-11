@@ -32,7 +32,7 @@ void BitcoinExchange::parse_data_file() {
   }
 }
 
-void process_exchange_file(const std::string &filename) {
+void BitcoinExchange::process_exchange_file(const std::string &filename) {
   std::cout << filename << std::endl;
 }
 
