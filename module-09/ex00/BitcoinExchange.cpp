@@ -34,7 +34,14 @@ void BitcoinExchange::parse_data_file() {
 }
 
 void BitcoinExchange::process_exchange_file(const std::string &filename) {
-  std::cout << filename << std::endl;
+  std::ifstream inputFile(filename);
+  std::string currentLine;
+  int count = 0;
+
+  while (getline(inputFile, currentLine)) {
+    if (count++ == 0) continue;
+    std::cout << currentLine << std::endl;
+  }
 }
 
 void BitcoinExchange::execute(const std::string &filename) {
