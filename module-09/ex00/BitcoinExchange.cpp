@@ -1,10 +1,10 @@
 #include "BitcoinExchange.hpp"
 
-int error(std::string errorMessage) {
-  std::cout << "\033[0;31m";
-  std::cout << errorMessage << std::endl;
-  std::cout << "\033[0m";
-  return 1;
+bool error(std::string errorMessage) {
+  std::cerr << "\033[0;31m";
+  std::cerr << errorMessage << std::endl;
+  std::cerr << "\033[0m";
+  return false;
 }
 
 BitcoinExchange::BitcoinExchange() {}
@@ -33,7 +33,13 @@ void BitcoinExchange::parseDataFile() {
   }
 }
 
+bool BitcoinExchange::isLineValid(const std::string &line) {
+  if (line.size() < 14) return error("Line is too short to contain all necessary data");
+  return true;
+}
+
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
+  if (!isLineValid(line)) return;
   std::cout << line << std::endl;
 }
 
@@ -43,8 +49,8 @@ void BitcoinExchange::processExchangeFile(const std::string &filename) {
   int count = 0;
 
   while (getline(inputFile, currentLine)) {
-    if (count++ == 0) continue;
-    handleExchangeFileLine(currentLine);
+    if (count) handleExchangeFileLine(currentLine);
+    count++;
   }
 }
 

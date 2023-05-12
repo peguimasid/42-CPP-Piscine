@@ -13,7 +13,8 @@ bool isValidFile(const std::string &filename) {
 
 int main(int argc, char **argv) {
   if (argc != 2 || !isValidFile(argv[1])) {
-    return error("Error: could not open file.");
+    std::cerr << "Error: could not open file." << std::endl;
+    return 1;
   }
   BitcoinExchange btc;
   btc.execute(argv[1]);

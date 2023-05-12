@@ -18,6 +18,6 @@ class BitcoinExchange {
   void parseDataFile();
   void processExchangeFile(const std::string &filename);
   void handleExchangeFileLine(const std::string &line);
-};
 
-int error(std::string errorMessage);
+  bool isLineValid(const std::string &line);
+};
