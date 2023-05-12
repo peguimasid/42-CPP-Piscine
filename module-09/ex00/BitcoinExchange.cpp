@@ -26,8 +26,9 @@ void BitcoinExchange::parse_data_file() {
   std::string currentLine;
 
   while (getline(inputFile, currentLine)) {
-    std::string date = currentLine.substr(0, 10).erase(4, 1).erase(6, 1);
-    float rate = atof(currentLine.substr(11).c_str());
+    std::string date = currentLine.substr(0, 10);
+    std::string rateStr = currentLine.substr(11);
+    float rate = atof(rateStr.c_str());
     this->_map.insert(std::make_pair(date, rate));
   }
 }
