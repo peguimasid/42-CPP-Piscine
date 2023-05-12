@@ -45,7 +45,9 @@ bool BitcoinExchange::isLineValid(const std::string &line) {
 
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   if (!isLineValid(line)) return;
-  std::cout << line << std::endl;
+  int pipeIndex = line.find('|');
+  std::string date = line.substr(0, pipeIndex);
+  std::string rate = line.substr(pipeIndex + 1);
 }
 
 void BitcoinExchange::processExchangeFile(const std::string &filename) {
