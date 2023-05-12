@@ -21,7 +21,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-void BitcoinExchange::parse_data_file() {
+void BitcoinExchange::parseDataFile() {
   std::ifstream inputFile("data.csv");
   std::string currentLine;
 
@@ -33,22 +33,22 @@ void BitcoinExchange::parse_data_file() {
   }
 }
 
-void BitcoinExchange::handle_exchange_file_line(const std::string &line) {
+void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   std::cout << line << std::endl;
 }
 
-void BitcoinExchange::process_exchange_file(const std::string &filename) {
+void BitcoinExchange::processExchangeFile(const std::string &filename) {
   std::ifstream inputFile(filename);
   std::string currentLine;
   int count = 0;
 
   while (getline(inputFile, currentLine)) {
     if (count++ == 0) continue;
-    handle_exchange_file_line(currentLine);
+    handleExchangeFileLine(currentLine);
   }
 }
 
 void BitcoinExchange::execute(const std::string &filename) {
-  parse_data_file();
-  process_exchange_file(filename);
+  parseDataFile();
+  processExchangeFile(filename);
 }

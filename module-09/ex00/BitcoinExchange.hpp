@@ -15,9 +15,9 @@ class BitcoinExchange {
   ~BitcoinExchange();
 
   void execute(const std::string &filename);
-  void parse_data_file();
-  void process_exchange_file(const std::string &filename);
-  void handle_exchange_file_line(const std::string &line);
+  void parseDataFile();
+  void processExchangeFile(const std::string &filename);
+  void handleExchangeFileLine(const std::string &line);
 };
 
 int error(std::string errorMessage);
