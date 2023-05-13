@@ -43,11 +43,16 @@ bool BitcoinExchange::isLineValid(const std::string &line) {
   return true;
 }
 
+std::string BitcoinExchange::parseDate(const std::string &string) {
+  return string;
+}
+
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   if (!isLineValid(line)) return;
   int pipeIndex = line.find('|');
-  std::string date = line.substr(0, pipeIndex);
+  std::string date = parseDate(line.substr(0, pipeIndex));
   std::string rate = line.substr(pipeIndex + 1);
+  std::cout << date << "=" << rate << std::endl;
 }
 
 void BitcoinExchange::processExchangeFile(const std::string &filename) {
