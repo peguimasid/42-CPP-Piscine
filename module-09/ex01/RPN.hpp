@@ -13,5 +13,7 @@ class RPN {
   RPN &operator=(const RPN &other);
   ~RPN();
 
+  bool isValidExpression(const std::string &expression);
+
   void execute(const std::string &expression);
 };
