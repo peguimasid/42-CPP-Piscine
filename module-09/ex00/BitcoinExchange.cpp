@@ -62,6 +62,7 @@ bool BitcoinExchange::isDateValid(const std::string &date) {
       return error("bad date", date);
     }
   }
+
   int year = std::atof(date.substr(0, 4).c_str());
   int month = std::atof(date.substr(5, 2).c_str());
   int day = std::atof(date.substr(8, 2).c_str());
