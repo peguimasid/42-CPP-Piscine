@@ -49,6 +49,9 @@ bool BitcoinExchange::isDateValid(const std::string &date) {
   if (delimiterCount != 2 || date[date.size() - 1] != ' ') {
     return error("Error: bad date =>", date);
   }
+  if (date.size() != 11 || date[4] != '-' || date[7] != '-') {
+    return error("Error: bad date =>", date);
+  }
   for (size_t i = 0; i < date.size() - 1; i++) {
     int foundIndex = validChars.find(date[i]);
     if (foundIndex < 0) {
