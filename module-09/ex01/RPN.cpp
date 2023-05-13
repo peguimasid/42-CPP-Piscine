@@ -45,7 +45,13 @@ bool RPN::isValidExpression(const std::string &expression) {
   return true;
 }
 
+void RPN::handleExpressionChar(const char expressionChar) {
+  std::cout << expressionChar << std::endl;
+}
+
 void RPN::execute(const std::string &expression) {
   if (!isValidExpression(expression)) return;
-  std::cout << expression << std::endl;
+  for (size_t i = 0; i < expression.size(); i++) {
+    handleExpressionChar(expression[i]);
+  }
 }
