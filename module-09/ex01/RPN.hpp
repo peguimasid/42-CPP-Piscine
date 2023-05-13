@@ -17,4 +17,5 @@ class RPN {
 
   void execute(const std::string &expression);
   void handleExpressionChar(const char expressionChar);
+  int executeOperation(int topElement, const char op);
 };

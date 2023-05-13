@@ -45,8 +45,36 @@ bool RPN::isValidExpression(const std::string &expression) {
   return true;
 }
 
+int RPN::executeOperation(int topElement, const char op) {
+  if (op == '*') return this->_stack.top() * topElement;
+  if (op == '/') return this->_stack.top() / topElement;
+  if (op == '+') return this->_stack.top() + topElement;
+  if (op == '-') return this->_stack.top() - topElement;
+  return 0;
+}
+
 void RPN::handleExpressionChar(const char expressionChar) {
-  std::cout << expressionChar << std::endl;
+  if (isdigit(expressionChar)) return this->_stack.push(expressionChar - '0');
+
+  std::string validOperators = "+-*/";
+  bool isOperator = validOperators.find(expressionChar) != std::string::npos;
+
+  if (!isOperator) return;
+
+  if (this->_stack.size() < 2) {
+    error("Error: Irregular expression");
+    exit(1);
+  }
+
+  int topElement = this->_stack.top();
+
+  if (topElement == 0 && expressionChar == '/') {
+    error("Error: Cannot divide by 0");
+    exit(1);
+  }
+
+  this->_stack.pop();
+  this->_stack.top() = executeOperation(topElement, expressionChar);
 }
 
 void RPN::execute(const std::string &expression) {
@@ -54,4 +82,5 @@ void RPN::execute(const std::string &expression) {
   for (size_t i = 0; i < expression.size(); i++) {
     handleExpressionChar(expression[i]);
   }
+  std::cout << this->_stack.top() << std::endl;
 }
