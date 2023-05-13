@@ -81,7 +81,7 @@ bool BitcoinExchange::isRateValid(const std::string &rate) {
 
   int pointCount = std::count(rate.begin(), rate.end(), '.');
 
-  if (pointCount > 1 || rate[0] != ' ') {
+  if (pointCount > 1 || rate.size() < 2 || rate[0] != ' ') {
     return error("bad value", rate);
   }
 
