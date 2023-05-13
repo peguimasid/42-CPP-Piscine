@@ -34,9 +34,13 @@ bool RPN::isValidExpression(const std::string &expression) {
     if (charIndex < 0 && operatorIndex < 0) {
       return error("Error: Invalid char");
     }
+    if (charIndex >= 0 && expression[i] != ' ') numbersCount++;
+    if (operatorIndex >= 0) operatorsCount++;
   }
-  (void)numbersCount;
-  (void)operatorsCount;
+
+  if (numbersCount <= operatorsCount) {
+    return error("Error: Invalid RPN expression");
+  }
 
   return true;
 }
