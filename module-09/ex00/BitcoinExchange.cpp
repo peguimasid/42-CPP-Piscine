@@ -85,6 +85,23 @@ bool BitcoinExchange::isRateValid(const std::string &rate) {
     return error("bad value", rate);
   }
 
+  if (rate[1] == '-') {
+    return error("not a positive number", rate.substr(1));
+  }
+
+  for (size_t i = 1; i < rate.size(); i++) {
+    int foundIndex = validChars.find(rate[i]);
+    if (foundIndex < 0) {
+      return error("bad value", rate.substr(1));
+    }
+  }
+
+  float value = std::atof(rate.c_str());
+
+  if (value > 1000) {
+    return error("too large number", rate.substr(1));
+  }
+
   return true;
 }
 
