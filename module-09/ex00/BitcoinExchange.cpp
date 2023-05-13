@@ -118,7 +118,9 @@ void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   std::string dateWithoutFinalSpace = date.substr(0, 10);
   float rate = std::atof(rateStr.c_str());
 
-  std::cout << dateWithoutFinalSpace << " => " << rate << std::endl;
+  float exchangeRate = rate * (--this->_map.upper_bound(dateWithoutFinalSpace))->second;
+
+  std::cout << dateWithoutFinalSpace << " => " << rate << " = " << exchangeRate << std::endl;
 }
 
 void BitcoinExchange::processExchangeFile(const std::string &filename) {
