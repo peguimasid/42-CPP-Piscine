@@ -108,12 +108,17 @@ bool BitcoinExchange::isRateValid(const std::string &rate) {
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   if (!isLineValid(line)) return;
   int pipeIndex = line.find('|');
+
   std::string date = line.substr(0, pipeIndex);
   if (!isDateValid(date)) return;
+
   std::string rateStr = line.substr(pipeIndex + 1);
   if (!isRateValid(rateStr)) return;
+
+  std::string dateWithoutFinalSpace = date.substr(0, 10);
   float rate = std::atof(rateStr.c_str());
-  std::cout << date << "= " << rate << std::endl;
+
+  std::cout << dateWithoutFinalSpace << " => " << rate << std::endl;
 }
 
 void BitcoinExchange::processExchangeFile(const std::string &filename) {
