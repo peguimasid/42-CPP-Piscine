@@ -2,7 +2,7 @@
 
 bool error(std::string errorMessage, std::string param) {
   std::cerr << "\033[0;31m";
-  std::cerr << "Error: " << errorMessage << param << std::endl;
+  std::cerr << "Error: " << errorMessage << " => " << param << std::endl;
   std::cerr << "\033[0m";
   return false;
 }
@@ -37,7 +37,7 @@ bool BitcoinExchange::isLineValid(const std::string &line) {
   int pipeCount = std::count(line.begin(), line.end(), '|');
 
   if (pipeCount != 1) {
-    return error("bad input => ", line);
+    return error("bad input", line);
   }
 
   return true;
@@ -47,15 +47,15 @@ bool BitcoinExchange::isDateValid(const std::string &date) {
   std::string validChars = "0123456789-";
   int delimiterCount = std::count(date.begin(), date.end(), '-');
   if (delimiterCount != 2 || date[date.size() - 1] != ' ') {
-    return error("bad date =>", date);
+    return error("bad date", date);
   }
   if (date.size() != 11 || date[4] != '-' || date[7] != '-') {
-    return error("bad date =>", date);
+    return error("bad date", date);
   }
   for (size_t i = 0; i < date.size() - 1; i++) {
     int foundIndex = validChars.find(date[i]);
     if (foundIndex < 0) {
-      return error("bad date =>", date);
+      return error("bad date", date);
     }
   }
   return true;
