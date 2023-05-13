@@ -18,7 +18,7 @@ class BitcoinExchange {
   void parseDataFile();
   void processExchangeFile(const std::string &filename);
   void handleExchangeFileLine(const std::string &line);
-  std::string parseDate(const std::string &string);
 
   bool isLineValid(const std::string &line);
+  bool isDateValid(const std::string &date);
 };

@@ -43,14 +43,26 @@ bool BitcoinExchange::isLineValid(const std::string &line) {
   return true;
 }
 
-std::string BitcoinExchange::parseDate(const std::string &string) {
-  return string;
+bool BitcoinExchange::isDateValid(const std::string &date) {
+  std::string validChars = "0123456789-";
+  int delimiterCount = std::count(date.begin(), date.end(), '-');
+  if (delimiterCount != 2 || date[date.size() - 1] != ' ') {
+    return error("Error: bad date =>", date);
+  }
+  for (size_t i = 0; i < date.size() - 1; i++) {
+    int foundIndex = validChars.find(date[i]);
+    if (foundIndex < 0) {
+      return error("Error: bad date =>", date);
+    }
+  }
+  return true;
 }
 
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   if (!isLineValid(line)) return;
   int pipeIndex = line.find('|');
-  std::string date = parseDate(line.substr(0, pipeIndex));
+  std::string date = line.substr(0, pipeIndex);
+  if (!isDateValid(date)) return;
   std::string rate = line.substr(pipeIndex + 1);
   std::cout << date << "=" << rate << std::endl;
 }
