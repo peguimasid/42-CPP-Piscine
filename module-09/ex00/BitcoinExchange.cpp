@@ -45,19 +45,33 @@ bool BitcoinExchange::isLineValid(const std::string &line) {
 
 bool BitcoinExchange::isDateValid(const std::string &date) {
   std::string validChars = "0123456789-";
+
   int delimiterCount = std::count(date.begin(), date.end(), '-');
+
   if (delimiterCount != 2 || date[date.size() - 1] != ' ') {
     return error("bad date", date);
   }
+
   if (date.size() != 11 || date[4] != '-' || date[7] != '-') {
     return error("bad date", date);
   }
+
   for (size_t i = 0; i < date.size() - 1; i++) {
     int foundIndex = validChars.find(date[i]);
     if (foundIndex < 0) {
       return error("bad date", date);
     }
   }
+  int year = std::atof(date.substr(0, 4).c_str());
+  int month = std::atof(date.substr(5, 2).c_str());
+  int day = std::atof(date.substr(8, 2).c_str());
+
+  int monthLimitDays[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+  if (year < 2009 || month < 1 || month > 12 || day < 1 || day > monthLimitDays[month - 1]) {
+    return error("bad date", date);
+  }
+
   return true;
 }
 
