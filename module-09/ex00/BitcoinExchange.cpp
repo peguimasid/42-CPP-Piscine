@@ -77,7 +77,14 @@ bool BitcoinExchange::isDateValid(const std::string &date) {
 }
 
 bool BitcoinExchange::isRateValid(const std::string &rate) {
-  (void)rate;
+  std::string validChars = "0123456789.";
+
+  int pointCount = std::count(rate.begin(), rate.end(), '.');
+
+  if (pointCount > 1 || rate[0] != ' ') {
+    return error("bad value", rate);
+  }
+
   return true;
 }
 
