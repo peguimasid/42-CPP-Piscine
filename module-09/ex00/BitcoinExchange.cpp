@@ -76,12 +76,18 @@ bool BitcoinExchange::isDateValid(const std::string &date) {
   return true;
 }
 
+bool BitcoinExchange::isRateValid(const std::string &rate) {
+  (void)rate;
+  return true;
+}
+
 void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   if (!isLineValid(line)) return;
   int pipeIndex = line.find('|');
   std::string date = line.substr(0, pipeIndex);
   if (!isDateValid(date)) return;
   std::string rate = line.substr(pipeIndex + 1);
+  if (!isRateValid(rate)) return;
   std::cout << date << "=" << rate << std::endl;
 }
 

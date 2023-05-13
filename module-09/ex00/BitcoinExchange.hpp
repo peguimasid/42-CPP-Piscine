@@ -21,4 +21,5 @@ class BitcoinExchange {
 
   bool isLineValid(const std::string &line);
   bool isDateValid(const std::string &date);
+  bool isRateValid(const std::string &rate);
 };
