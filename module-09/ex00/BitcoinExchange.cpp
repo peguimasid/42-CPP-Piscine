@@ -86,9 +86,10 @@ void BitcoinExchange::handleExchangeFileLine(const std::string &line) {
   int pipeIndex = line.find('|');
   std::string date = line.substr(0, pipeIndex);
   if (!isDateValid(date)) return;
-  std::string rate = line.substr(pipeIndex + 1);
-  if (!isRateValid(rate)) return;
-  std::cout << date << "=" << rate << std::endl;
+  std::string rateStr = line.substr(pipeIndex + 1);
+  if (!isRateValid(rateStr)) return;
+  float rate = std::atof(rateStr.c_str());
+  std::cout << date << "= " << rate << std::endl;
 }
 
 void BitcoinExchange::processExchangeFile(const std::string &filename) {
