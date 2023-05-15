@@ -16,4 +16,5 @@ class PmergeMe {
   ~PmergeMe();
 
   void execute(char **nums, int length);
+  void fillContainers(char **nums, int length);
 };

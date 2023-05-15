@@ -20,9 +20,18 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 
 PmergeMe::~PmergeMe() {}
 
-void PmergeMe::execute(char **nums, int length) {
+void PmergeMe::fillContainers(char **nums, int length) {
   for (int i = 0; i < length; i++) {
     std::string param = nums[i];
     std::cout << param << std::endl;
+  }
+}
+
+void PmergeMe::execute(char **nums, int length) {
+  try {
+    fillContainers(nums, length);
+  } catch (const std::exception &e) {
+    error(e.what());
+    return;
   }
 }
