@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include <stack>
+#include <list>
+#include <vector>
 
 class PmergeMe {
  private:
@@ -10,4 +11,6 @@ class PmergeMe {
   PmergeMe(const PmergeMe &other);
   PmergeMe &operator=(const PmergeMe &other);
   ~PmergeMe();
+
+  void execute(char **nums, int length);
 };

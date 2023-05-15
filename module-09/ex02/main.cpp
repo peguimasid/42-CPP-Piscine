@@ -9,7 +9,8 @@ int printUsage() {
 
 int main(int argc, char **argv) {
   if (argc < 2) return printUsage();
-  (void)argv;
-  std::cout << "Hello World" << std::endl;
+
+  PmergeMe merge;
+  merge.execute(argv + 1, argc - 1);
   return 0;
 }
