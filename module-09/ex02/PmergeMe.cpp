@@ -32,6 +32,5 @@ void PmergeMe::execute(char **nums, int length) {
     fillContainers(nums, length);
   } catch (const std::exception &e) {
     error(e.what());
-    return;
   }
 }
