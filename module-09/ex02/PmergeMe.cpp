@@ -44,9 +44,18 @@ void PmergeMe::fillContainers(char **nums, int length) {
   }
 }
 
+void PmergeMe::displayUnsortedSequence() {
+  std::cout << "Before:\t";
+  for (std::vector<unsigned int>::const_iterator it = this->_vector.begin(); it != this->_vector.end(); ++it) {
+    std::cout << " " << *it;
+  }
+  std::cout << std::endl;
+}
+
 void PmergeMe::execute(char **nums, int length) {
   try {
     fillContainers(nums, length);
+    displayUnsortedSequence();
   } catch (const std::exception &e) {
     error(e.what());
   }
