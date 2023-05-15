@@ -39,7 +39,8 @@ void PmergeMe::fillContainers(char **nums, int length) {
       throw std::invalid_argument("Only positive integers");
     }
 
-    std::cout << num << std::endl;
+    this->_vector.push_back(num);
+    this->_list.push_back(num);
   }
 }
 
