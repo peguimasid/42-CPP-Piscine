@@ -7,6 +7,14 @@ bool error(std::string errorMessage) {
   return false;
 }
 
+bool isStringNumeric(const std::string &str) {
+  for (size_t i = 0; i < str.size(); i++) {
+    if (!isdigit(str[i])) return false;
+  }
+
+  return true;
+}
+
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe &other) {
@@ -23,7 +31,15 @@ PmergeMe::~PmergeMe() {}
 void PmergeMe::fillContainers(char **nums, int length) {
   for (int i = 0; i < length; i++) {
     std::string param = nums[i];
-    std::cout << param << std::endl;
+    if (!isStringNumeric(param)) {
+      throw std::invalid_argument("Only positive integers");
+    }
+    int num = std::atoi(param.c_str());
+    if (num <= 0) {
+      throw std::invalid_argument("Only positive integers");
+    }
+
+    std::cout << num << std::endl;
   }
 }
 
