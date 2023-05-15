@@ -5,6 +5,9 @@
 
 class PmergeMe {
  private:
+  std::vector<unsigned int> _vector;
+  std::list<unsigned int> _list;
+
  public:
   // Constructors and Destructors
   PmergeMe();
