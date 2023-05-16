@@ -25,5 +25,4 @@ class PmergeMe {
   void fillContainers(char **nums, int length);
   void displayUnsortedSequence();
   void mergeInsertSortVector();
-  double getTimeDiff(const std::clock_t &t1, const std::clock_t &t2);
 };
