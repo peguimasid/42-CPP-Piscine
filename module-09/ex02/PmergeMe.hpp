@@ -7,12 +7,12 @@
 class PmergeMe {
  private:
   std::vector<unsigned int> _vector;
-  std::clock_t start_vector_time;
-  std::clock_t end_vector_time;
+  std::clock_t _start_vector_time;
+  std::clock_t _end_vector_time;
 
   std::list<unsigned int> _list;
-  std::clock_t start_list_time;
-  std::clock_t end_list_time;
+  std::clock_t _start_list_time;
+  std::clock_t _end_list_time;
 
  public:
   // Constructors and Destructors
