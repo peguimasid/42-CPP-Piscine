@@ -125,7 +125,6 @@ void PmergeMe::execute(char **nums, int length) {
     fillContainers(nums, length);
     displayUnsortedSequence();
     sortVector();
-    displayUnsortedSequence();
   } catch (const std::exception &e) {
     error(e.what());
   }
