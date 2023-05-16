@@ -64,19 +64,67 @@ void PmergeMe::insertionSortVector(int leftIndex, int rightIndex) {
   }
 }
 
+void PmergeMe::mergeVector(int leftIndex, int rightIndex, int middle) {
+  int leftSize = middle - leftIndex + 1;
+  int rightSize = rightIndex - middle;
+
+  std::vector<int> leftVector(leftSize);
+  std::vector<int> rightVector(rightSize);
+
+  for (int i = 0; i < leftSize; i++) {
+    leftVector[i] = this->_vector[leftIndex + i];
+  }
+  for (int j = 0; j < rightSize; j++) {
+    rightVector[j] = this->_vector[middle + 1 + j];
+  }
+
+  int i = 0;
+  int j = 0;
+  int k = leftIndex;
+  while (i < leftSize && j < rightSize) {
+    if (leftVector[i] <= rightVector[j]) {
+      this->_vector[k] = leftVector[i];
+      i++;
+    } else {
+      this->_vector[k] = rightVector[j];
+      j++;
+    }
+    k++;
+  }
+
+  while (i < leftSize) {
+    this->_vector[k] = leftVector[i];
+    i++;
+    k++;
+  }
+  while (j < rightSize) {
+    this->_vector[k] = rightVector[j];
+    j++;
+    k++;
+  }
+}
+
 void PmergeMe::mergeInsertSortVector(int leftIndex, int rightIndex) {
   if (rightIndex - leftIndex <= 5) {
     return insertionSortVector(leftIndex, rightIndex);
   }
+  int middle = (leftIndex + rightIndex) / 2;
+  mergeInsertSortVector(leftIndex, middle);
+  mergeInsertSortVector(middle + 1, rightIndex);
+  return mergeVector(leftIndex, rightIndex, middle);
+}
+
+void PmergeMe::sortVector() {
+  this->_start_vector_time = std::clock();
+  mergeInsertSortVector(0, this->_vector.size() - 1);
+  this->_end_vector_time = std::clock();
 }
 
 void PmergeMe::execute(char **nums, int length) {
   try {
     fillContainers(nums, length);
     displayUnsortedSequence();
-    this->_start_vector_time = std::clock();
-    mergeInsertSortVector(0, this->_vector.size() - 1);
-    this->_end_vector_time = std::clock();
+    sortVector();
   } catch (const std::exception &e) {
     error(e.what());
   }
