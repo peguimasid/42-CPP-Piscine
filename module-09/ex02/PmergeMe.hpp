@@ -24,5 +24,7 @@ class PmergeMe {
   void execute(char **nums, int length);
   void fillContainers(char **nums, int length);
   void displayUnsortedSequence();
-  void mergeInsertSortVector();
+
+  void mergeInsertSortVector(int leftIndex, int rightIndex);
+  void insertionSortVector(int leftIndex, int rightIndex);
 };

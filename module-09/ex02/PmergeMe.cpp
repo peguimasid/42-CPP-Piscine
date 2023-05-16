@@ -52,8 +52,24 @@ void PmergeMe::displayUnsortedSequence() {
   std::cout << std::endl;
 }
 
-void PmergeMe::mergeInsertSortVector() {
+void PmergeMe::insertionSortVector(int leftIndex, int rightIndex) {
+  for (int i = leftIndex; i < rightIndex; i++) {
+    unsigned int temp = this->_vector[i + 1];
+    int j = i + 1;
+    while (j > leftIndex && this->_vector[j - 1] > temp) {
+      this->_vector[j] = this->_vector[j - 1];
+      j--;
+    }
+    this->_vector[j] = temp;
+  }
+}
+
+void PmergeMe::mergeInsertSortVector(int leftIndex, int rightIndex) {
   this->_start_vector_time = std::clock();
+
+  if (rightIndex - leftIndex <= 5) {
+    return insertionSortVector(leftIndex, rightIndex);
+  }
 
   this->_end_vector_time = std::clock();
 }
@@ -62,7 +78,7 @@ void PmergeMe::execute(char **nums, int length) {
   try {
     fillContainers(nums, length);
     displayUnsortedSequence();
-    mergeInsertSortVector();
+    mergeInsertSortVector(0, this->_vector.size() - 1);
   } catch (const std::exception &e) {
     error(e.what());
   }
