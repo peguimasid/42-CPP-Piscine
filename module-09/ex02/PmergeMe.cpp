@@ -68,8 +68,8 @@ void PmergeMe::mergeVector(int leftIndex, int rightIndex, int middle) {
   int leftSize = middle - leftIndex + 1;
   int rightSize = rightIndex - middle;
 
-  std::vector<int> leftVector(leftSize);
-  std::vector<int> rightVector(rightSize);
+  std::vector<unsigned int> leftVector(leftSize);
+  std::vector<unsigned int> rightVector(rightSize);
 
   for (int i = 0; i < leftSize; i++) {
     leftVector[i] = this->_vector[leftIndex + i];
@@ -125,6 +125,7 @@ void PmergeMe::execute(char **nums, int length) {
     fillContainers(nums, length);
     displayUnsortedSequence();
     sortVector();
+    displayUnsortedSequence();
   } catch (const std::exception &e) {
     error(e.what());
   }
