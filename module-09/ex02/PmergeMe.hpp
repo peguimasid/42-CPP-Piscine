@@ -11,8 +11,8 @@ class PmergeMe {
   std::clock_t _end_vector_time;
 
   std::list<unsigned int> _list;
-  std::clock_t _start_list_time;
-  std::clock_t _end_list_time;
+  // std::clock_t _start_list_time;
+  // std::clock_t _end_list_time;
 
  public:
   // Constructors and Destructors
@@ -23,6 +23,7 @@ class PmergeMe {
 
   void execute(char **nums, int length);
   void fillContainers(char **nums, int length);
-
   void displayUnsortedSequence();
+  void mergeInsertSortVector();
+  double getTimeDiff(const std::clock_t &t1, const std::clock_t &t2);
 };

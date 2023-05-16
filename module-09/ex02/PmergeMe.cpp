@@ -52,10 +52,21 @@ void PmergeMe::displayUnsortedSequence() {
   std::cout << std::endl;
 }
 
+double PmergeMe::getTimeDiff(const std::clock_t &t1, const std::clock_t &t2) {
+  return static_cast<double>(t2 - t1) / CLOCKS_PER_SEC * 1000000;
+}
+
+void PmergeMe::mergeInsertSortVector() {
+  this->_start_vector_time = std::clock();
+
+  this->_end_vector_time = std::clock();
+}
+
 void PmergeMe::execute(char **nums, int length) {
   try {
     fillContainers(nums, length);
     displayUnsortedSequence();
+    mergeInsertSortVector();
   } catch (const std::exception &e) {
     error(e.what());
   }
