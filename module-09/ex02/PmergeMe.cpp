@@ -120,11 +120,20 @@ void PmergeMe::sortVector() {
   this->_end_vector_time = std::clock();
 }
 
+void PmergeMe::sortList() {
+  this->_start_list_time = std::clock();
+  for (size_t i = 0; i < this->_list.size(); i++) {
+    std::cout << *std::next(this->_list.begin(), i) << std::endl;
+  }
+  this->_end_list_time = std::clock();
+}
+
 void PmergeMe::execute(char **nums, int length) {
   try {
     fillContainers(nums, length);
     displayUnsortedSequence();
     sortVector();
+    sortList();
   } catch (const std::exception &e) {
     error(e.what());
   }
