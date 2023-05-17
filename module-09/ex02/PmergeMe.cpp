@@ -194,9 +194,6 @@ void PmergeMe::execute(char **nums, int length) {
     displayUnsortedSequence();
     sortVector();
     sortList();
-    for (size_t i = 0; i < this->_list.size(); i++) {
-      std::cout << *std::next(this->_list.begin(), i) << std::endl;
-    }
   } catch (const std::exception &e) {
     error(e.what());
   }
