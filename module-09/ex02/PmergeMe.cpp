@@ -203,6 +203,11 @@ void PmergeMe::execute(char **nums, int length) {
     sortVector();
     sortList();
     displaySortedSequence();
+    double elapsed_lst = static_cast<double>(this->_end_list_time - this->_start_list_time) / CLOCKS_PER_SEC * 1000000;
+    std::cout << "Time to process a range of " << this->_list.size() << " elements with std::list: " << elapsed_lst << " us" << std::endl;
+
+    double elapsed_vec = static_cast<double>(this->_end_vector_time - this->_start_vector_time) / CLOCKS_PER_SEC * 1000000;
+    std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << elapsed_vec << " us" << std::endl;
   } catch (const std::exception &e) {
     error(e.what());
   }
