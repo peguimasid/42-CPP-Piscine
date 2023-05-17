@@ -26,6 +26,7 @@ class PmergeMe {
 
   void displayUnsortedSequence();
   void displaySortedSequence();
+  void displayTimeTakenToProcessData();
 
   void sortVector();
   void mergeInsertSortVector(int leftIndex, int rightIndex);
