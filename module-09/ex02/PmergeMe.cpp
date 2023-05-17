@@ -120,10 +120,6 @@ void PmergeMe::sortVector() {
   this->_end_vector_time = std::clock();
 }
 
-unsigned int PmergeMe::listAt(std::list<unsigned int> list, int index) {
-  return *std::next(list.begin(), index);
-}
-
 void PmergeMe::insertionSortList(int leftIndex, int rightIndex) {
   for (int i = leftIndex; i < rightIndex; i++) {
     unsigned int temp = *std::next(this->_list.begin(), i + 1);
@@ -140,8 +136,8 @@ void PmergeMe::mergeList(int leftIndex, int rightIndex, int middle) {
   int leftSize = middle - leftIndex + 1;
   int rightSize = rightIndex - middle;
 
-  std::list<unsigned int> leftList(leftSize);
-  std::list<unsigned int> rightList(rightSize);
+  std::list<unsigned int> leftList;
+  std::list<unsigned int> rightList;
 
   for (int i = 0; i < leftSize; i++) {
     leftList.push_back(*std::next(this->_list.begin(), leftIndex + i));
@@ -197,9 +193,9 @@ void PmergeMe::execute(char **nums, int length) {
     fillContainers(nums, length);
     displayUnsortedSequence();
     sortVector();
-    // sortList();
+    sortList();
     for (size_t i = 0; i < this->_list.size(); i++) {
-      std::cout << listAt(this->_list, i) << std::endl;
+      std::cout << *std::next(this->_list.begin(), i) << std::endl;
     }
   } catch (const std::exception &e) {
     error(e.what());

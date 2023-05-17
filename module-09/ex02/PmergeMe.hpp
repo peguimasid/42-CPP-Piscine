@@ -30,8 +30,6 @@ class PmergeMe {
   void insertionSortVector(int leftIndex, int rightIndex);
   void mergeVector(int leftIndex, int rightIndex, int middle);
 
-  unsigned int listAt(std::list<unsigned int> list, int index);
-
   void sortList();
   void mergeInsertSortList(int leftIndex, int rightIndex);
   void insertionSortList(int leftIndex, int rightIndex);
