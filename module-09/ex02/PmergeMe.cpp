@@ -120,11 +120,31 @@ void PmergeMe::sortVector() {
   this->_end_vector_time = std::clock();
 }
 
+void PmergeMe::insertionSortList(int leftIndex, int rightIndex) {
+  for (int i = leftIndex; i < rightIndex; i++) {
+    unsigned int temp = *std::next(this->_list.begin(), i + 1);
+    int j = i + 1;
+    while (j > leftIndex && *std::next(this->_list.begin(), j - 1) > temp) {
+      *std::next(this->_list.begin(), j) = *std::next(this->_list.begin(), j - 1);
+      j--;
+    }
+    *std::next(this->_list.begin(), j) = temp;
+  }
+}
+
+void PmergeMe::mergeInsertSortList(int leftIndex, int rightIndex) {
+  if (rightIndex - leftIndex <= 5) {
+    return insertionSortList(leftIndex, rightIndex);
+  }
+  // int middle = (leftIndex + rightIndex) / 2;
+  // mergeInsertSortVector(leftIndex, middle);
+  // mergeInsertSortVector(middle + 1, rightIndex);
+  // return mergeVector(leftIndex, rightIndex, middle);
+}
+
 void PmergeMe::sortList() {
   this->_start_list_time = std::clock();
-  for (size_t i = 0; i < this->_list.size(); i++) {
-    std::cout << *std::next(this->_list.begin(), i) << std::endl;
-  }
+  mergeInsertSortList(0, this->_list.size() - 1);
   this->_end_list_time = std::clock();
 }
 
@@ -134,6 +154,9 @@ void PmergeMe::execute(char **nums, int length) {
     displayUnsortedSequence();
     sortVector();
     sortList();
+    for (size_t i = 0; i < this->_list.size(); i++) {
+      std::cout << *std::next(this->_list.begin(), i) << std::endl;
+    }
   } catch (const std::exception &e) {
     error(e.what());
   }

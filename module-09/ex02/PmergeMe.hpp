@@ -31,4 +31,6 @@ class PmergeMe {
   void mergeVector(int leftIndex, int rightIndex, int middle);
 
   void sortList();
+  void mergeInsertSortList(int leftIndex, int rightIndex);
+  void insertionSortList(int leftIndex, int rightIndex);
 };
