@@ -120,6 +120,10 @@ void PmergeMe::sortVector() {
   this->_end_vector_time = std::clock();
 }
 
+unsigned int PmergeMe::listAt(std::list<unsigned int> list, int index) {
+  return *std::next(list.begin(), index);
+}
+
 void PmergeMe::insertionSortList(int leftIndex, int rightIndex) {
   for (int i = leftIndex; i < rightIndex; i++) {
     unsigned int temp = *std::next(this->_list.begin(), i + 1);
@@ -132,14 +136,54 @@ void PmergeMe::insertionSortList(int leftIndex, int rightIndex) {
   }
 }
 
+void PmergeMe::mergeList(int leftIndex, int rightIndex, int middle) {
+  int leftSize = middle - leftIndex + 1;
+  int rightSize = rightIndex - middle;
+
+  std::list<unsigned int> leftList(leftSize);
+  std::list<unsigned int> rightList(rightSize);
+
+  for (int i = 0; i < leftSize; i++) {
+    leftList.push_back(*std::next(this->_list.begin(), leftIndex + i));
+  }
+  for (int i = 0; i < rightSize; i++) {
+    rightList.push_back(*std::next(this->_list.begin(), middle + 1 + i));
+  }
+
+  int i = 0;
+  int j = 0;
+  int k = leftIndex;
+  while (i < leftSize && j < rightSize) {
+    if (*std::next(leftList.begin(), i) <= *std::next(rightList.begin(), j)) {
+      *std::next(this->_list.begin(), k) = *std::next(leftList.begin(), i);
+      i++;
+    } else {
+      *std::next(this->_list.begin(), k) = *std::next(rightList.begin(), j);
+      j++;
+    }
+    k++;
+  }
+
+  while (i < leftSize) {
+    *std::next(this->_list.begin(), k) = *std::next(leftList.begin(), i);
+    i++;
+    k++;
+  }
+  while (j < rightSize) {
+    *std::next(this->_list.begin(), k) = *std::next(rightList.begin(), j);
+    j++;
+    k++;
+  }
+}
+
 void PmergeMe::mergeInsertSortList(int leftIndex, int rightIndex) {
   if (rightIndex - leftIndex <= 5) {
     return insertionSortList(leftIndex, rightIndex);
   }
-  // int middle = (leftIndex + rightIndex) / 2;
-  // mergeInsertSortVector(leftIndex, middle);
-  // mergeInsertSortVector(middle + 1, rightIndex);
-  // return mergeVector(leftIndex, rightIndex, middle);
+  int middle = (leftIndex + rightIndex) / 2;
+  mergeInsertSortList(leftIndex, middle);
+  mergeInsertSortList(middle + 1, rightIndex);
+  return mergeList(leftIndex, rightIndex, middle);
 }
 
 void PmergeMe::sortList() {
@@ -153,9 +197,9 @@ void PmergeMe::execute(char **nums, int length) {
     fillContainers(nums, length);
     displayUnsortedSequence();
     sortVector();
-    sortList();
+    // sortList();
     for (size_t i = 0; i < this->_list.size(); i++) {
-      std::cout << *std::next(this->_list.begin(), i) << std::endl;
+      std::cout << listAt(this->_list, i) << std::endl;
     }
   } catch (const std::exception &e) {
     error(e.what());
