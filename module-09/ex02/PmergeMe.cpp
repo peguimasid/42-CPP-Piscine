@@ -46,8 +46,16 @@ void PmergeMe::fillContainers(char **nums, int length) {
 
 void PmergeMe::displayUnsortedSequence() {
   std::cout << "Before:\t";
-  for (std::vector<unsigned int>::const_iterator it = this->_vector.begin(); it != this->_vector.end(); ++it) {
-    std::cout << " " << *it;
+  for (size_t i = 0; i < this->_vector.size(); i++) {
+    std::cout << " " << this->_vector[i];
+  }
+  std::cout << std::endl;
+}
+
+void PmergeMe::displaySortedSequence() {
+  std::cout << "After:\t";
+  for (size_t i = 0; i < this->_list.size(); i++) {
+    std::cout << " " << *std::next(this->_list.begin(), i);
   }
   std::cout << std::endl;
 }
@@ -194,6 +202,7 @@ void PmergeMe::execute(char **nums, int length) {
     displayUnsortedSequence();
     sortVector();
     sortList();
+    displaySortedSequence();
   } catch (const std::exception &e) {
     error(e.what());
   }
